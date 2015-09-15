@@ -1,32 +1,43 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Weapon : MonoBehaviour {
-	public float handleLength = 1.0f;
-	public float headSize = 1.0f;
-	public float dmgMod = 1.0f;
-	public float knockbackMod = 1.0f;
-	//Armor mods are for shields
-	public float passiveArmorMod = 0.0f;
-	public float blockingArmorMod = 0.0f;
-	public float maxAttackTime = 1.0f;
-	//Default to sword, but this should be set EVERY TIME
-	public WeaponType type = WeaponType.SWORD;
+public class Weapon {
+	//Global modifiers for certain weapons
+	//These are always applied on top of whatever mods the specific weapon has
+	//So "1.0" represents the damage of a stock tool, so "1.0" means different
+	//things for a sword, axe, and hammer
+	public static float GLOBAL_AXE_DAMAGE_MOD = 1.0f;
+	public static float GLOBAL_SWORD_DAMAGE_MOD = 0.75f;
+	public static float GLOBAL_HAMMER_DAMAGE_MOD = 1.5f;
+	public static float GLOBAL_AXE_KNOCKBACK_MOD = 1.0f;
+	public static float GLOBAL_SWORD_KNOCKBACK_MOD = 0.75f;
+	public static float GLOBAL_HAMMER_KNOCKBAC_KMOD = 1.5f;
+	public static float GLOBAL_AXE_ATTACK_TIME_MOD = 1.0f;
+	public static float GLOBAL_SWORD_ATTACK_TIME_MOD = 0.75f;
+	public static float GLOBAL_HAMMER_ATTACK_TIME_MOD = 1.5f;
 
-	float currentAttackTime;
-	bool isAttacking = false;
+	public WeaponType type;
 
-	void Start() {
-		currentAttackTime = maxAttackTime;
-	}
+	public float handleLength;
+	public float headSize;
+	//TODO - make damage depend on handle length and head size
+	public float dmgMod;
+	public float knockbackMod;
+	//TODO - make attack time depend on handle length and head size
+	public float attackTime;
 
-	void FixedUpdate() {
-		if (isAttacking) {
-			currentAttackTime -= Time.fixedDeltaTime;
-			if (currentAttackTime <= 0) {
-				isAttacking = false;
-				currentAttackTime = maxAttackTime;
-			}
+	public Weapon(WeaponType newType, float newHandleLength = 1.0f, float newHeadSize = 1.0f, float newDmgMod = 1.0f, float newKnockbackMod = 1.0f, float newAttackTime = 1.0f) {
+		//Defaults represent stock axe stats
+
+		if (newType == WeaponType.SHIELD || newType == WeaponType.TORCH) {
+			Debug.LogWarning("You should probably be initializing this object as a shield or torch, not as a generic weapon.");
 		}
+
+		type = newType;
+		handleLength = newHandleLength;
+		headSize = newHeadSize; 
+		dmgMod = newDmgMod;
+		knockbackMod = newKnockbackMod;
+		attackTime = newAttackTime; 
 	}
 }
