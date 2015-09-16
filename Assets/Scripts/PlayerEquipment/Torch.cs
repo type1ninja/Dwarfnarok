@@ -3,7 +3,10 @@ using System.Collections;
 
 public class Torch : Weapon {
 
-	public Torch() : base(WeaponType.SWORD, 1f, 1f, .25f, .75f, 1f) {
+	public static float TORCH_HANDLE_LENGTH = 1.0f;
+	public static float TORCH_HEAD_SIZE = .25f;
+
+	public Torch() : base(WeaponType.SWORD, TORCH_HANDLE_LENGTH, TORCH_HEAD_SIZE) {
 		//Stats for torches above
 	}
 }

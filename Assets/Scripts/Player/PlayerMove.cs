@@ -6,18 +6,23 @@ using System.Collections;
 //Some slight modifications were made for Dwarfnarok
 public class PlayerMove : MonoBehaviour {
 
-	public float speed = 6.0F;
+	public float speed = 10.0F;
 	public float jumpSpeed = 8.0F;
-	public float gravity = 20.0F;
+	public float gravity = Physics.gravity.y;
 
 	private Vector3 moveDirection = Vector3.zero;
 	CharacterController controller;
+	PlayerStats playerStats;
 
 	void Start() {
 		controller = GetComponent<CharacterController>();
+		playerStats = GetComponent<PlayerStats> ();
 	}
 
-	void Update() {
+	void FixedUpdate() {
+		speed = playerStats.speed;
+		jumpSpeed = playerStats.jumpSpeed;
+
 		if (controller.isGrounded) {
 			moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 			moveDirection = transform.TransformDirection(moveDirection);
@@ -30,7 +35,8 @@ public class PlayerMove : MonoBehaviour {
 				moveDirection.y = jumpSpeed;
 			
 		}
-		moveDirection.y -= gravity * Time.deltaTime;
+		//ADD gravity because it's negative
+		moveDirection.y += gravity * Time.deltaTime;
 		controller.Move(moveDirection * Time.deltaTime);
 	}
 }
