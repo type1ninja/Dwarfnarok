@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class PlayerStats : MonoBehaviour {
-	//All of these DEFAULT_variables are ABSOLUTE values
+	//All of these variables are ABSOLUTE values
 
 	public float DEFAULT_maxHealth = 100f;
 	public float DEFAULT_healthRegen = 7.5f;
@@ -22,7 +22,7 @@ public class PlayerStats : MonoBehaviour {
 	public float DEFAULT_speed = 10f;
 	public float DEFAULT_jumpSpeed = 8f;
 
-	//ALl of these regular varibales are MODIFIERS
+
 
 	public float currentHealth;
 	public float healthRegen;
@@ -64,6 +64,29 @@ public class PlayerStats : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
+		//Multiply EVERY value by it's corresponding armor mod every frame
+		maxHealth = DEFAULT_maxHealth * armor.maxHealthMod;
+		healthRegen = DEFAULT_healthRegen * armor.healthRegenMod;
+		damageReduction = DEFAULT_damageReduction * armor.damageReductionMod;
+		
+		maxMana = DEFAULT_maxMana * armor.maxManaMod;
+		manaRegen = DEFAULT_manaRegen * armor.manaRegenMod;
+		
+		damage = DEFAULT_damage * armor.damageMod;
+		knockback = DEFAULT_knockback * armor.knockbackMod;
+		attackSpeed = DEFAULT_attackSpeed * armor.attackSpeedMod;
+		
+		speed = DEFAULT_speed * armor.speedMod;
+		jumpSpeed = DEFAULT_jumpSpeed * armor.jumpSpeedMod;
+		
+		Debug.Log (attackSpeed);
+		
+		//TODO - PSEDUOCODE
+		//for (int i = 0; i < activeEffects.Length; i++) {
+		//	speed *= activeEffects[i].speedMod;
+		//}
+		//Repeat for all values except current health/mana
+
 		currentHealth += healthRegen * Time.fixedDeltaTime;
 		if (currentHealth > maxHealth) {
 			currentHealth = maxHealth;
@@ -78,26 +101,5 @@ public class PlayerStats : MonoBehaviour {
 		} else if (currentMana < 0) {
 			currentMana = 0;
 		}
-
-		//Multiply EVERY value by it's corresponding armor mod every frame
-		maxHealth = DEFAULT_maxHealth * armor.maxHealthMod;
-		healthRegen = DEFAULT_healthRegen * armor.healthRegenMod;
-		damageReduction = DEFAULT_damageReduction * armor.damageReductionMod;
-
-		maxMana = DEFAULT_maxMana * armor.maxManaMod;
-		manaRegen = DEFAULT_manaRegen * armor.manaRegenMod;
-
-		damage = DEFAULT_damage * armor.damageMod;
-		knockback = DEFAULT_knockback * armor.knockbackMod;
-		attackSpeed = DEFAULT_attackSpeed * armor.attackSpeedMod;
-
-		speed = DEFAULT_speed * armor.speedMod;
-		jumpSpeed = DEFAULT_jumpSpeed * armor.jumpSpeedMod;
-
-		//TODO - PSEDUOCODE
-		//for (int i = 0; i < activeEffects.Length; i++) {
-		//	speed *= activeEffects[i].speedMod;
-		//}
-		//Repeat for all values except current health/mana
 	}
 }

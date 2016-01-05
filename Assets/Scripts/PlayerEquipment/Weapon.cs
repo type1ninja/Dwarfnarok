@@ -24,12 +24,8 @@ public class Weapon {
 	public float knockbackMod;
 	public float attackTime;
 
-	public Weapon(WeaponType newType, float newHandleLength = 1.0f, float newHeadSize = 1.0f) {
+	public Weapon(WeaponType newType = WeaponType.AXE, float newHandleLength = 1.0f, float newHeadSize = 1.0f) {
 		//Defaults represent stock axe stats
-
-		if (newType == WeaponType.SHIELD || newType == WeaponType.TORCH) {
-			Debug.LogWarning("You should probably be initializing this object as a shield or torch, not as a generic weapon.");
-		}
 
 		type = newType;
 		handleLength = newHandleLength;
