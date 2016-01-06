@@ -2,10 +2,11 @@
 using System.Collections;
 
 public class PlayerStats : MonoBehaviour {
-	//All of these variables are ABSOLUTE values
+	//All of these variables are DEFAULT ABSOLUTE values
 
 	public float DEFAULT_maxHealth = 100f;
-	public float DEFAULT_healthRegen = 7.5f;
+	//In health per second
+	public float DEFAULT_healthRegen = 2.5f;
 	//Percent of damage blocked
 	public float DEFAULT_damageReduction = .15f;
 
@@ -17,7 +18,7 @@ public class PlayerStats : MonoBehaviour {
 	//TODO - KNOCKBACK HAS NO REFERENCE POINT YET
 	public float DEFAULT_knockback = 5.0f;
 	//Number of seconds taken to swing object
-	public float DEFAULT_attackSpeed = 1.5f;
+	public float DEFAULT_attackTime = 1.5f;
 	
 	public float DEFAULT_speed = 10f;
 	public float DEFAULT_jumpSpeed = 8f;
@@ -35,8 +36,7 @@ public class PlayerStats : MonoBehaviour {
 
 	public float damage;
 	public float knockback;
-	//TODO - FIGURE OUT ATTACK SPEED IN GENERAL
-	public float attackSpeed;
+	public float attackTime;
 
 	public float speed;
 	public float jumpSpeed;
@@ -57,7 +57,7 @@ public class PlayerStats : MonoBehaviour {
 		
 		float damage = DEFAULT_damage;
 		float knockback = DEFAULT_knockback;
-		float attackSpeed = DEFAULT_attackSpeed;
+		float attackTime = DEFAULT_attackTime;
 		
 		float speed = DEFAULT_speed;
 		float jumpSpeed = DEFAULT_jumpSpeed;
@@ -74,14 +74,13 @@ public class PlayerStats : MonoBehaviour {
 		
 		damage = DEFAULT_damage * armor.damageMod;
 		knockback = DEFAULT_knockback * armor.knockbackMod;
-		attackSpeed = DEFAULT_attackSpeed * armor.attackSpeedMod;
+		attackTime = DEFAULT_attackTime * armor.attackTimeMod;
 		
 		speed = DEFAULT_speed * armor.speedMod;
 		jumpSpeed = DEFAULT_jumpSpeed * armor.jumpSpeedMod;
 		
-		Debug.Log (attackSpeed);
-		
 		//TODO - PSEDUOCODE
+		//This will be the code for spell effects on a player
 		//for (int i = 0; i < activeEffects.Length; i++) {
 		//	speed *= activeEffects[i].speedMod;
 		//}
