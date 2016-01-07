@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-//This class basically acts as the player character's statistics
+//This class basically acts as modifiable-in-game player stats
 public class Armor {
 	//Percentage modifiers
 	public float maxHealthMod = 1.0f;

@@ -6,9 +6,9 @@ using System.Collections;
 //Some slight modifications were made for Dwarfnarok
 public class PlayerMove : MonoBehaviour {
 
-	public float speed = 10.0F;
-	public float jumpSpeed = 8.0F;
-	public float gravity = Physics.gravity.y;
+	float speed;
+	float jumpSpeed;
+	float gravity = Physics.gravity.y;
 
 	private Vector3 moveDirection = Vector3.zero;
 	CharacterController controller;

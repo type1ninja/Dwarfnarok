@@ -18,7 +18,7 @@ public class PlayerStats : MonoBehaviour {
 	//TODO - KNOCKBACK HAS NO REFERENCE POINT YET
 	public float DEFAULT_knockback = 5.0f;
 	//Number of seconds taken to swing object
-	public float DEFAULT_attackTime = 1.5f;
+	public float DEFAULT_attackTime = .75f;
 	
 	public float DEFAULT_speed = 10f;
 	public float DEFAULT_jumpSpeed = 8f;
@@ -41,7 +41,7 @@ public class PlayerStats : MonoBehaviour {
 	public float speed;
 	public float jumpSpeed;
 
-	//The armor is pretty much just player stats
+	//The armor is pretty much modifiable-in-game player stats
 	Armor armor = new Armor();
 
 	void Start() {
