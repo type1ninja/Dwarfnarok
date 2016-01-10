@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerStats : MonoBehaviour {
+public class CharacterStats : MonoBehaviour {
 	//All of these variables are DEFAULT ABSOLUTE values
 
 	public float DEFAULT_maxHealth = 100f;
@@ -24,13 +24,11 @@ public class PlayerStats : MonoBehaviour {
 	public float DEFAULT_jumpSpeed = 8f;
 
 
-
-	public float currentHealth;
+	
 	public float healthRegen;
 	public float maxHealth;
 	public float damageReduction;
-
-	public float currentMana;
+	
 	public float manaRegen;
 	public float maxMana;
 
@@ -85,20 +83,5 @@ public class PlayerStats : MonoBehaviour {
 		//	speed *= activeEffects[i].speedMod;
 		//}
 		//Repeat for all values except current health/mana
-
-		currentHealth += healthRegen * Time.fixedDeltaTime;
-		if (currentHealth > maxHealth) {
-			currentHealth = maxHealth;
-		} else if (currentHealth < 0) {
-			//TODO - DIE
-			currentHealth = maxHealth;
-		}
-
-		currentMana += manaRegen * Time.fixedDeltaTime;
-		if (currentMana > maxHealth) {
-			currentMana = maxMana;
-		} else if (currentMana < 0) {
-			currentMana = 0;
-		}
 	}
 }

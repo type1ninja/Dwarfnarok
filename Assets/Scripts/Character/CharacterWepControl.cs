@@ -2,9 +2,9 @@
 using System.Collections;
 
 //TODO - ACCOUNT FOR HANDED-NESS
-public class WeaponControl : MonoBehaviour {
+public abstract class CharacterWepControl : MonoBehaviour {
 
-	PlayerStats pstats;
+	CharacterStats stats;
 	Transform weaponTransform;
 
 	//TODO - do dual wield + multiple weapons. For now, though, single-weapon single-wield is fine. 
@@ -23,12 +23,12 @@ public class WeaponControl : MonoBehaviour {
 	Vector3 currentSwingRot;
 	
 	void Start() {
-		pstats = GetComponent<PlayerStats> ();
-		weaponTransform = transform.Find ("PlayerCam").Find ("RightWep");
+		stats = GetComponent<CharacterStats> ();
+		weaponTransform = transform.Find ("CharacterHead").Find ("RightWep");
 
 		wep = new Weapon ();
 
-		maxAttackTime = pstats.attackTime * wep.attackTime;
+		maxAttackTime = stats.attackTime * wep.attackTime;
 		currentAttackTime = maxAttackTime;
 		//TODO - GET VARIABLES FOR THE DEFAULT POSITION
 		startSwingRot = new Vector3 (70, 30, 0);
@@ -36,8 +36,11 @@ public class WeaponControl : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
+		if (CheckForSwing ()) {
+			Swing ();
+		}
 
-		maxAttackTime = pstats.attackTime * wep.attackTime;
+		maxAttackTime = stats.attackTime * wep.attackTime;
 		//Multiply by -1 to make it rotate the right way
 		degreesPerSec = -1 * totalDegrees / maxAttackTime;
 
@@ -54,17 +57,15 @@ public class WeaponControl : MonoBehaviour {
 				weaponTransform.localRotation = Quaternion.Euler (startSwingRot);
 			}
 		}
-
-		if (Input.GetAxis ("PrimaryFire") != 0) {
-			Swing ();
-		}
 	}
 
-	public void Swing() {
+	protected void Swing() {
 		//Only allow swinging if the current swing is done
 		if (!isSwinging) {
 			isSwinging = true;
 			weaponTransform.localRotation = Quaternion.Euler (startSwingRot);
 		}
 	}
+
+	protected abstract bool CheckForSwing();
 }
