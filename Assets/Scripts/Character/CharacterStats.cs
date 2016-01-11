@@ -61,6 +61,7 @@ public class CharacterStats : MonoBehaviour {
 		float jumpSpeed = DEFAULT_jumpSpeed;
 	}
 
+	//TODO - REPLACE ALL OF THESE UPDATES (except maybe maxHealth/Mana) WITH GET METHODS, THIS IS PROBLY TOO LAGGY
 	void FixedUpdate() {
 		//Multiply EVERY value by it's corresponding armor mod every frame
 		maxHealth = DEFAULT_maxHealth * armor.maxHealthMod;

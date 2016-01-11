@@ -5,4 +5,5 @@
 	//'HAMMER' identifies hammers and punching gloves
 	//'SHIELD' identifies shields
 	//'TORCH' identifies torches
+	//TODO - GRAPPLING HOOKS LIKE IN FORTRESSCRAFT! 
 }

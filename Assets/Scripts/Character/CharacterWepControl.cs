@@ -14,12 +14,11 @@ public abstract class CharacterWepControl : MonoBehaviour {
 	float maxAttackTime;
 	//Decremented by the current fixedDeltaTime each FixedUpdate while the player is swinging. Reset once it reaches 0
 	float currentAttackTime;
-	bool isSwinging = false;
-
-	//TODO - Rotation variables
+	public bool isSwinging = false;
+	
 	float totalDegrees = 65f;
 	float degreesPerSec;
-	Vector3 startSwingRot;
+	Vector3 startSwingRot = new Vector3 (70, 30, 0);
 	Vector3 currentSwingRot;
 	
 	void Start() {
@@ -31,7 +30,6 @@ public abstract class CharacterWepControl : MonoBehaviour {
 		maxAttackTime = stats.attackTime * wep.attackTime;
 		currentAttackTime = maxAttackTime;
 		//TODO - GET VARIABLES FOR THE DEFAULT POSITION
-		startSwingRot = new Vector3 (70, 30, 0);
 		currentSwingRot = startSwingRot;
 	}
 
@@ -65,6 +63,10 @@ public abstract class CharacterWepControl : MonoBehaviour {
 			isSwinging = true;
 			weaponTransform.localRotation = Quaternion.Euler (startSwingRot);
 		}
+	}
+
+	public float GetDamage() {
+		return (stats.damage * wep.damageMod);
 	}
 
 	protected abstract bool CheckForSwing();
