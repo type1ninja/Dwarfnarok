@@ -3,6 +3,9 @@ using System.Collections;
 
 public class CharacterHealthMana : MonoBehaviour {
 
+	//Void damage per second
+	float VOIDDMGPERSEC = -750;
+
 	CharacterStats stats;
 
 	float health;
@@ -24,11 +27,10 @@ public class CharacterHealthMana : MonoBehaviour {
 
 	void FixedUpdate() {
 		//TODO - MAKE A HEALTH BAR FOR THE PLAYER AND FOR ENEMIES
-		Debug.Log (gameObject.name + ": " + health);
 
 		//Void Death
 		if (transform.position.y <= -4) {
-			health -= 50 * Time.fixedDeltaTime;
+			ModHealth(VOIDDMGPERSEC * Time.fixedDeltaTime);
 		}
 
 		if (hasTakenDamage) {
@@ -59,6 +61,9 @@ public class CharacterHealthMana : MonoBehaviour {
 	//Damage is inputted as a negative number
 	//and Regen as a positive number
 	public void ModHealth(float diff) {
+		//Reduce damage taken by the armor value
+		diff *= (1 - stats.damageReduction);
+
 		if (diff < 0) {
 			if (!hasTakenDamage) {
 				health += diff;
@@ -77,6 +82,10 @@ public class CharacterHealthMana : MonoBehaviour {
 	void Die() {
 		transform.position = new Vector3 (0, 5, 0);
 		health = stats.maxHealth;
+	}
+
+	public float GetHealth() {
+		return health;
 	}
 
 	//Check if you're being intersected by a weapon
