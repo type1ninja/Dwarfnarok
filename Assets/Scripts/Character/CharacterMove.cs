@@ -20,8 +20,8 @@ public abstract class CharacterMove : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		speed = stats.speed;
-		jumpSpeed = stats.jumpSpeed;
+		speed = stats.GetSpeed();
+		jumpSpeed = stats.GetJumpSpeed();
 
 		if (controller.isGrounded) {
 			moveDirection = GetInput ();
