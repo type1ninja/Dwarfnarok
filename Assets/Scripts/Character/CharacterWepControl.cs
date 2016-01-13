@@ -27,7 +27,7 @@ public abstract class CharacterWepControl : MonoBehaviour {
 
 		wep = new Weapon ();
 
-		maxAttackTime = stats.attackTime * wep.attackTime;
+		maxAttackTime = stats.GetAttackTime() * wep.attackTime;
 		currentAttackTime = maxAttackTime;
 		//TODO - GET VARIABLES FOR THE DEFAULT POSITION
 		currentSwingRot = startSwingRot;
@@ -38,7 +38,7 @@ public abstract class CharacterWepControl : MonoBehaviour {
 			Swing ();
 		}
 
-		maxAttackTime = stats.attackTime * wep.attackTime;
+		maxAttackTime = stats.GetAttackTime() * wep.attackTime;
 		//Multiply by -1 to make it rotate the right way
 		degreesPerSec = -1 * totalDegrees / maxAttackTime;
 
@@ -66,7 +66,7 @@ public abstract class CharacterWepControl : MonoBehaviour {
 	}
 
 	public float GetDamage() {
-		return (stats.damage * wep.damageMod);
+		return (stats.GetDamage() * wep.damageMod);
 	}
 
 	protected abstract bool CheckForSwing();

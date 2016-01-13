@@ -12,7 +12,7 @@ public class CharacterHealthMana : MonoBehaviour {
 	float mana;
 
 	//Don't take damage more than twice a second. Otherwise you would be _eviscerated._
-	float dmgTimerMax = .5f;
+	float dmgTimerMax;
 	float dmgTimer;
 	bool hasTakenDamage = false;
 
@@ -20,8 +20,9 @@ public class CharacterHealthMana : MonoBehaviour {
 	//Right now you just need to regen
 	void Start() {
 		stats = GetComponent<CharacterStats> ();
-		health = stats.maxHealth;
-		mana = stats.maxMana;
+		health = stats.GetMaxHealth();
+		mana = stats.GetMaxMana();
+		dmgTimerMax = stats.GetDamageTimer ();
 		dmgTimer = dmgTimerMax;
 	}
 
@@ -41,28 +42,28 @@ public class CharacterHealthMana : MonoBehaviour {
 			}
 		}
 
-		if (health > stats.maxHealth) {
-			health = stats.maxHealth;
+		if (health > stats.GetMaxHealth()) {
+			health = stats.GetMaxHealth();
 		} else if (health < 0) {
 			Die ();
 		}
 
-		if (mana > stats.maxHealth) {
-			mana = stats.maxMana;
+		if (mana > stats.GetMaxHealth()) {
+			mana = stats.GetMaxMana();
 		} else if (mana < 0) {
 			mana = 0;
 		}
 
 		//Regen
-		ModHealth(stats.healthRegen * Time.fixedDeltaTime);
-		ModMana (stats.manaRegen * Time.fixedDeltaTime);
+		ModHealth(stats.GetHealthRegen() * Time.fixedDeltaTime);
+		ModMana (stats.GetManaRegen() * Time.fixedDeltaTime);
 	}
 
 	//Damage is inputted as a negative number
 	//and Regen as a positive number
 	public void ModHealth(float diff) {
 		//Reduce damage taken by the armor value
-		diff *= (1 - stats.damageReduction);
+		diff *= (1 - stats.GetDamageReduction());
 
 		if (diff < 0) {
 			if (!hasTakenDamage) {
@@ -81,7 +82,7 @@ public class CharacterHealthMana : MonoBehaviour {
 	//TODO - STOP MOTION AS WELL
 	void Die() {
 		transform.position = new Vector3 (0, 5, 0);
-		health = stats.maxHealth;
+		health = stats.GetMaxHealth();
 	}
 
 	public float GetHealth() {
@@ -104,7 +105,7 @@ public class CharacterHealthMana : MonoBehaviour {
 
 						//Actually deal the damage :P
 						ModHealth (-1 * other.GetComponentInParent<CharacterWepControl> ().GetDamage ());
-
+						//TODO - KNOCKBACK
 					}
 				} //else if (isSomeOtherDamager) { - This could be for traps and stuff
 			}
