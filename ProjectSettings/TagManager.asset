@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DealsDamage
   - AI
+  - WeaponCustomizer
   layers:
   - Default
   - TransparentFX

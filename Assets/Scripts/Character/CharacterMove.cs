@@ -6,13 +6,14 @@ using System.Collections;
 //Some slight modifications were made for Dwarfnarok
 public abstract class CharacterMove : MonoBehaviour {
 
+	CharacterController controller;
+	CharacterStats stats;
+
 	float speed;
 	float jumpSpeed;
 	float gravity = Physics.gravity.y;
 
 	Vector3 moveDirection = Vector3.zero;
-	CharacterController controller;
-	CharacterStats stats;
 
 	void Start() {
 		controller = GetComponent<CharacterController>();
@@ -34,7 +35,6 @@ public abstract class CharacterMove : MonoBehaviour {
 			if (GetJump()) {
 				moveDirection.y = jumpSpeed;
 			}
-			
 		}
 		//ADD gravity because it's negative
 		moveDirection.y += gravity * Time.deltaTime;

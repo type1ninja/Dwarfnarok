@@ -11,6 +11,7 @@ public class CharacterHealthMana : MonoBehaviour {
 	float health;
 	float mana;
 
+	//TODO - REMOVE DAMAGE TIMER, REPLACE WITH "DON'T TAKE DAMAGE MORE THAN ONCE PER HIT BY A SINGLE WEP"
 	//Don't take damage more than twice a second. Otherwise you would be _eviscerated._
 	float dmgTimerMax;
 	float dmgTimer;
