@@ -5,6 +5,7 @@ using System.Collections;
 public abstract class CharacterWepControl : MonoBehaviour {
 
 	CharacterStats stats;
+	DamageDealer dmgDealer;
 	Transform weaponTransform;
 
 	//TODO - do dual wield + multiple weapons. For now, though, single-weapon single-wield is fine. 
@@ -14,7 +15,7 @@ public abstract class CharacterWepControl : MonoBehaviour {
 	float maxAttackTime;
 	//Decremented by the current fixedDeltaTime each FixedUpdate while the player is swinging. Reset once it reaches 0
 	float currentAttackTime;
-	public bool isSwinging = false;
+	bool isSwinging = false;
 
 	//TODO - MAKE ANIMATIONS FOR SLOW WEPS HAVE A SET LENGTH + WAIT PERIOD AFTER SWINGING - FAST WEPS GET FAST ANIMATIONS
 	float totalDegrees = 65f;
@@ -28,6 +29,7 @@ public abstract class CharacterWepControl : MonoBehaviour {
 	
 	void Start() {
 		stats = GetComponent<CharacterStats> ();
+		dmgDealer = GetComponentInChildren<DamageDealer> ();
 		weaponTransform = transform.Find ("CharacterHead").Find ("RightWep");
 
 		wep = new Weapon ();
@@ -45,6 +47,9 @@ public abstract class CharacterWepControl : MonoBehaviour {
 		}
 
 		maxAttackTime = stats.GetAttackTime() * wep.attackTime;
+		if (!isSwinging) {
+			currentAttackTime = maxAttackTime;
+		}
 		//Multiply by -1 to make it rotate the right way
 		degreesPerSec = -1 * totalDegrees / maxAttackTime;
 
@@ -57,6 +62,7 @@ public abstract class CharacterWepControl : MonoBehaviour {
 				isSwinging = false;
 				currentSwingRot = idleRot;
 				weaponTransform.localPosition = idlePos;
+				dmgDealer.ResetHitList();
 				//TODO - MAKE AN IDLE POSITION/ANIMATION 
 			}
 		}
@@ -75,12 +81,16 @@ public abstract class CharacterWepControl : MonoBehaviour {
 		}
 	}
 
+	public bool GetIsSwinging() {
+		return isSwinging;
+	}
+
 	public float GetDamage() {
 		return (stats.GetDamage() * wep.damageMod);
 	}
 
 	public float GetKnockback() {
-		return (stats.knockback * wep.knockbackMod);
+		return (stats.GetKnockback() * wep.knockbackMod);
 	}
 
 	public float GetMaxSwingTime() {

@@ -7,10 +7,8 @@ public class CharacterStats : MonoBehaviour {
 	float DEFAULT_maxHealth = 100f;
 	//In health per second
 	float DEFAULT_healthRegen = 2.5f;
-	//Percent of damage blocked
+	//Percent of damage blocked by armor
 	float DEFAULT_damageReduction = .15f;
-	//The time period during which you are invincible after taking damage
-	float DEFAULT_damageTimer = .5f;
 
 	//manaRegen = mana/sec
 	float DEFAULT_manaRegen = 10f;
@@ -30,10 +28,10 @@ public class CharacterStats : MonoBehaviour {
 
 	//TODO - PSEDUOCODE
 	//This will be the code for spell effects on a player
+	//Place this inside the getter methods for each value
 	//for (int i = 0; i < activeEffects.Length; i++) {
 	//	speed *= activeEffects[i].speedMod;
 	//}
-	//Repeat for all values except current health/mana
 
 	//The Getter methods - these return the default value * the armor modifier
 	public float GetHealthRegen() {
@@ -44,9 +42,6 @@ public class CharacterStats : MonoBehaviour {
 	}
 	public float GetDamageReduction() {
 		return DEFAULT_damageReduction * armor.damageReductionMod;
-	}
-	public float GetDamageTimer() {
-		return DEFAULT_damageTimer * armor.damageTimerMod;
 	}
 	public float GetMaxMana() {
 		return DEFAULT_maxMana * armor.maxManaMod;

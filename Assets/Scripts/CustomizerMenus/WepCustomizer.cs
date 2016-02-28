@@ -34,6 +34,6 @@ public class WepCustomizer : MonoBehaviour {
 		//TODO - Also update weapontype
 		wepControl.wep.UpdateStats(wepControl.wep.type, handleSlider.value, headSlider.value);
 		//Update display
-		statText.text = "Damage: " + wepControl.GetDamage () + "\nKnockback: " + wepControl.GetKnockback () + "\nSwing Time: " + wepControl.GetMaxSwingTime();
+		statText.text = "Damage: " + wepControl.GetDamage ().ToString ("F2") + "\nKnockback: " + wepControl.GetKnockback ().ToString ("F2") + "\nSwing Time: " + wepControl.GetMaxSwingTime().ToString ("F2");
 	}
 }
