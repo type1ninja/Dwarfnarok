@@ -8,9 +8,13 @@ public class DamageDealer : MonoBehaviour {
 
 	List<Transform> hitTrans;
 
+	static Vector3 KNOCKBACK_OFFSET;
+
 	void Start() {
 		charWepCtrl = GetComponentInParent<CharacterWepControl> ();
 		hitTrans = new List<Transform> ();
+
+		KNOCKBACK_OFFSET = new Vector3 (0, 2f, 0);
 	}
 
 	public void ResetHitList() {
@@ -33,10 +37,15 @@ public class DamageDealer : MonoBehaviour {
 					//If it is, skip it
 					if (!hitTrans.Contains (other.transform)) {
 
-						//Actually deal the damage :P
+						//Add it to the list of things hit during this swing
 						hitTrans.Add(other.transform);
+						//Deal the damage
 						other.GetComponentInParent<CharacterHealthMana>().ModHealth (-1 * charWepCtrl.GetDamage ());
-						//TODO - KNOCKBACK
+						//Do knockback
+						Vector3 force = KNOCKBACK_OFFSET + other.transform.root.position - transform.root.position; 
+						force.Normalize ();
+						force *= charWepCtrl.GetKnockback ();
+						other.GetComponentInParent<ImpactReceiver>().AddImpact(force);
 					}
 				}
 			}

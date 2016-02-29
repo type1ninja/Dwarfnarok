@@ -15,8 +15,7 @@ public class CharacterStats : MonoBehaviour {
 	float DEFAULT_maxMana = 100f;
 	
 	float DEFAULT_damage = 25f;
-	//TODO - KNOCKBACK HAS NO REFERENCE POINT YET
-	float DEFAULT_knockback = 5.0f;
+	float DEFAULT_knockback = 30f;
 	//Number of seconds taken to swing object
 	float DEFAULT_attackTime = .75f;
 	

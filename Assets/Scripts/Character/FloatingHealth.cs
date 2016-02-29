@@ -4,7 +4,6 @@ using System.Collections;
 
 public class FloatingHealth : MonoBehaviour {
 
-	//TODO - OFFSET NOT WORKING?
 	Vector3 offset = new Vector3 (0, 2.5f, 0);
 	string charName = "Generic Name";
 

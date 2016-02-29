@@ -33,7 +33,7 @@ public class CharacterHealthMana : MonoBehaviour {
 			Die ();
 		}
 
-		if (mana > stats.GetMaxHealth()) {
+		if (mana > stats.GetMaxMana()) {
 			mana = stats.GetMaxMana();
 		} else if (mana < 0) {
 			mana = 0;
@@ -63,7 +63,19 @@ public class CharacterHealthMana : MonoBehaviour {
 		health = stats.GetMaxHealth();
 	}
 
+	public float GetMaxHealth() {
+		return stats.GetMaxHealth ();
+	}
+
 	public float GetHealth() {
 		return health;
+	}
+
+	public float GetMaxMana() {
+		return stats.GetMaxMana ();
+	}
+
+	public float GetMana() {
+		return mana;
 	}
 }
