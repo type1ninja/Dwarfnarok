@@ -24,7 +24,7 @@ public class CharacterStats : MonoBehaviour {
 	float DEFAULT_jumpSpeed = 8f;
 
 	//The armor is pretty much modifiable-in-game player stats
-	Armor armor = new Armor();
+	public Armor armor = new Armor();
 
 	//TODO - PSEDUOCODE
 	//This will be the code for spell effects on a player

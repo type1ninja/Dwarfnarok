@@ -6,6 +6,7 @@ public class Interactor : MonoBehaviour {
 	Transform charHead;
 	//Various customizer panels
 	GameObject wepCustomizerPanel;
+	GameObject armorCustomizerPanel;
 	PlayerMove mover;
 	SimpleSmoothMouseLook mouseLook;
 	PlayerWepControl wepControl;
@@ -18,6 +19,9 @@ public class Interactor : MonoBehaviour {
 		wepCustomizerPanel = GameObject.Find ("WeaponCustomizerPanel");
 		wepCustomizerPanel.SetActive (false);
 
+		armorCustomizerPanel = GameObject.Find ("ArmorCustomizerPanel");
+		armorCustomizerPanel.SetActive (false);
+
 		mover = GetComponent<PlayerMove> ();
 		mouseLook = GetComponentInChildren<SimpleSmoothMouseLook> ();
 		wepControl = GetComponent<PlayerWepControl> ();
@@ -29,10 +33,18 @@ public class Interactor : MonoBehaviour {
 			//TODO - MAKE RAYCAST NOT HIT PLAYER
 			RaycastHit hit;
 			if (Physics.Raycast(transform.position, charHead.forward, out hit, range)) {
+
 				//Long list of possible tags for an "interactable" object
 				string hitTag = hit.transform.tag;
+
 				if (hitTag.Equals ("WeaponCustomizer")) {
 					wepCustomizerPanel.SetActive (true);
+					mover.canMove = false;
+					mouseLook.shouldLook = false;
+					wepControl.canSwing = false;
+				
+				} else if (hitTag.Equals ("ArmorCustomizer")) {
+					armorCustomizerPanel.SetActive (true);
 					mover.canMove = false;
 					mouseLook.shouldLook = false;
 					wepControl.canSwing = false;

@@ -5,6 +5,7 @@ using System.Collections;
 public class WepCustomizer : MonoBehaviour {
 
 	PlayerWepControl wepControl;
+
 	PlayerMove mover;
 	SimpleSmoothMouseLook mouseLook;
 
@@ -14,6 +15,7 @@ public class WepCustomizer : MonoBehaviour {
 
 	void Start() {
 		wepControl = GameObject.Find ("Player").GetComponent<PlayerWepControl> ();
+
 		mover = GameObject.Find ("Player").GetComponent<PlayerMove> ();
 		mouseLook = GameObject.Find ("Player").GetComponentInChildren<SimpleSmoothMouseLook> ();
 
@@ -23,7 +25,8 @@ public class WepCustomizer : MonoBehaviour {
 	}
 
 	void Update () {
-		//TODO - allow the interaction button to close this as well
+		//TODO - allow the interaction button to close this as well; 
+		//just adding a check makes it so it reopens it pretty much instantly
 		if (Input.GetButton ("Cancel")) {
 			mover.canMove = true;
 			mouseLook.shouldLook = true;

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - AI
   - WeaponCustomizer
+  - ArmorCustomizer
   layers:
   - Default
   - TransparentFX
