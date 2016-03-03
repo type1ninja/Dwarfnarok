@@ -24,6 +24,11 @@ public class CharacterStats : MonoBehaviour {
 
 	//The armor is pretty much modifiable-in-game player stats
 	public Armor armor = new Armor();
+	CharacterEffects charEffects;
+
+	void Start() {
+		charEffects = GetComponent<CharacterEffects> ();
+	}
 
 	//TODO - PSEDUOCODE
 	//This will be the code for spell effects on a player
@@ -32,35 +37,35 @@ public class CharacterStats : MonoBehaviour {
 	//	speed *= activeEffects[i].speedMod;
 	//}
 
-	//The Getter methods - these return the default value * the armor modifier
-	public float GetHealthRegen() {
-		return DEFAULT_healthRegen * armor.healthRegenMod;
-	}
+	//The Getter methods - these return the default value * the armor modifier * every spell modifier
 	public float GetMaxHealth() {
-		return DEFAULT_maxHealth * armor.maxHealthMod;
+		return DEFAULT_maxHealth * armor.maxHealthMod * charEffects.GetMaxHealthMod();
+	}
+	public float GetHealthRegen() {
+		return DEFAULT_healthRegen * armor.healthRegenMod * charEffects.GetHealthRegenMod ();
 	}
 	public float GetDamageReduction() {
-		return DEFAULT_damageReduction * armor.damageReductionMod;
+		return DEFAULT_damageReduction * armor.damageReductionMod* charEffects.GetDamageReductionMod ();
 	}
 	public float GetMaxMana() {
-		return DEFAULT_maxMana * armor.maxManaMod;
+		return DEFAULT_maxMana * armor.maxManaMod * charEffects.GetMaxManaMod ();
 	}
 	public float GetManaRegen() {
-		return DEFAULT_manaRegen * armor.manaRegenMod;
+		return DEFAULT_manaRegen * armor.manaRegenMod * charEffects.GetManaRegenMod ();
 	}
 	public float GetDamage() {
-		return DEFAULT_damage * armor.damageMod;
+		return DEFAULT_damage * armor.damageMod * charEffects.GetDamageMod ();
 	}
 	public float GetKnockback() {
-		return DEFAULT_knockback * armor.knockbackMod;
+		return DEFAULT_knockback * armor.knockbackMod * charEffects.GetKnockbackMod ();
 	}
 	public float GetAttackTime() {
-		return DEFAULT_attackTime * armor.attackTimeMod;
+		return DEFAULT_attackTime * armor.attackTimeMod * charEffects.GetAttackTimeMod ();
 	}
 	public float GetSpeed() {
-		return DEFAULT_speed * armor.speedMod;
+		return DEFAULT_speed * armor.speedMod * charEffects.GetSpeedMod ();
 	}
 	public float GetJumpSpeed() {
-		return DEFAULT_jumpSpeed * armor.speedMod;
+		return DEFAULT_jumpSpeed * armor.speedMod * charEffects.GetJumpSpeedMod ();
 	}
 }

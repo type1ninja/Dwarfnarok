@@ -34,8 +34,6 @@ public abstract class CharacterWepControl : MonoBehaviour {
 
 		wep = new Weapon ();
 
-		maxAttackTime = stats.GetAttackTime() * wep.attackTime;
-		currentAttackTime = maxAttackTime;
 		//TODO - GET VARIABLES FOR THE DEFAULT POSITION SEPARATE FROM SWINGING YOUR WEP
 		currentSwingRot = idleRot;
 		weaponTransform.localPosition = idlePos;

@@ -11,16 +11,19 @@ public class CharacterHealthMana : MonoBehaviour {
 	float health;
 	float mana;
 
-	//TODO - Health starts at 0 because the Stats script doesn't initialize fast enough.
+	bool hasSetFirstHealth = false;
+	
 	//Right now you just need to regen
 	void Start() {
 		stats = GetComponent<CharacterStats> ();
-		health = stats.GetMaxHealth();
-		mana = stats.GetMaxMana();
 	}
 
 	void FixedUpdate() {
-		//TODO - MAKE A HEALTH BAR FOR THE PLAYER AND FOR ENEMIES
+
+		if (!hasSetFirstHealth) {
+			Die ();
+			hasSetFirstHealth = true;
+		}
 
 		//Void Death
 		if (transform.position.y <= -4) {
