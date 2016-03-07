@@ -12,8 +12,7 @@ public class CharacterHealthMana : MonoBehaviour {
 	float mana;
 
 	bool hasSetFirstHealth = false;
-	
-	//Right now you just need to regen
+
 	void Start() {
 		stats = GetComponent<CharacterStats> ();
 	}
@@ -64,6 +63,7 @@ public class CharacterHealthMana : MonoBehaviour {
 	void Die() {
 		transform.position = new Vector3 (0, 5, 0);
 		health = stats.GetMaxHealth();
+		mana = stats.GetMaxHealth ();
 	}
 
 	public float GetMaxHealth() {

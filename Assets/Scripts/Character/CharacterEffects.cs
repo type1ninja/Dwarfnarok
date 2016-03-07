@@ -3,7 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class CharacterEffects : MonoBehaviour {
+	CharacterHealthMana healthmana;
+
 	List<SpellEffect> effects = new List<SpellEffect>();
+
+	void Start() {
+		healthmana = GetComponent<CharacterHealthMana> ();
+	}
 
 	//Update timers
 	void FixedUpdate() {
@@ -14,6 +20,12 @@ public class CharacterEffects : MonoBehaviour {
 				effects.Remove (effects[i]);
 			}
 		}
+	}
+
+	public void AddEffect(SpellEffect newEffect) {
+		effects.Add (newEffect);
+		healthmana.ModHealth (-1 * newEffect.instantDamage);
+		//TODO - KNOCKBACK
 	}
 
 	//All the methods for getting total stat mods
@@ -106,9 +118,5 @@ public class CharacterEffects : MonoBehaviour {
 		}
 		
 		return mod;
-	}
-
-	public void AddEffect(SpellEffect newEffect) {
-		effects.Add (newEffect);
 	}
 }

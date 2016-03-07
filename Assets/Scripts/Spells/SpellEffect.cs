@@ -3,8 +3,13 @@ using System.Collections;
 
 //The effects a spell has on someone
 public class SpellEffect {
-	//Effects that last the duration
 
+	//Instantly applied effects
+	//Can be negative
+	public float instantDamage = 0f;
+	public float instantKnockback = 0f;
+
+	//Effects that last the duration
 	public float maxHealthMod = 1f;
 	public float healthRegenMod = 1f;
 	public float damageResistMod = 1f;

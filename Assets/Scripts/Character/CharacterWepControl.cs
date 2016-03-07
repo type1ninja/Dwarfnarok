@@ -26,7 +26,7 @@ public abstract class CharacterWepControl : MonoBehaviour {
 	Vector3 idleRot = new Vector3(20, 60, 0);
 	Vector3 swingPos = new Vector3(-0.038f, -.059f, .534f);
 	Vector3 idlePos = new Vector3(-0.038f, -.629f, .534f);
-	
+
 	void Start() {
 		stats = GetComponent<CharacterStats> ();
 		dmgDealer = GetComponentInChildren<DamageDealer> ();
