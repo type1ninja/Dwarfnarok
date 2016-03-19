@@ -7,18 +7,15 @@ public class CharacterStats : MonoBehaviour {
 	float DEFAULT_maxHealth = 100f;
 	//In health per second
 	float DEFAULT_healthRegen = 2.5f;
-	//Percent of damage blocked
-	float DEFAULT_damageReduction = .15f;
-	//The time period during which you are invincible after taking damage
-	float DEFAULT_damageTimer = .5f;
+	//Percent of damage blocked by armor
+	float DEFAULT_damageReduction = .10f;
 
 	//manaRegen = mana/sec
 	float DEFAULT_manaRegen = 10f;
 	float DEFAULT_maxMana = 100f;
 	
 	float DEFAULT_damage = 25f;
-	//TODO - KNOCKBACK HAS NO REFERENCE POINT YET
-	float DEFAULT_knockback = 5.0f;
+	float DEFAULT_knockback = 7.5f;
 	//Number of seconds taken to swing object
 	float DEFAULT_attackTime = .75f;
 	
@@ -26,47 +23,49 @@ public class CharacterStats : MonoBehaviour {
 	float DEFAULT_jumpSpeed = 8f;
 
 	//The armor is pretty much modifiable-in-game player stats
-	Armor armor = new Armor();
+	public Armor armor = new Armor();
+	CharacterEffects charEffects;
+
+	void Start() {
+		charEffects = GetComponent<CharacterEffects> ();
+	}
 
 	//TODO - PSEDUOCODE
 	//This will be the code for spell effects on a player
+	//Place this inside the getter methods for each value
 	//for (int i = 0; i < activeEffects.Length; i++) {
 	//	speed *= activeEffects[i].speedMod;
 	//}
-	//Repeat for all values except current health/mana
 
-	//The Getter methods - these return the default value * the armor modifier
-	public float GetHealthRegen() {
-		return DEFAULT_healthRegen * armor.healthRegenMod;
-	}
+	//The Getter methods - these return the default value * the armor modifier * every spell modifier
 	public float GetMaxHealth() {
-		return DEFAULT_maxHealth * armor.maxHealthMod;
+		return DEFAULT_maxHealth * armor.maxHealthMod * charEffects.GetMaxHealthMod();
+	}
+	public float GetHealthRegen() {
+		return DEFAULT_healthRegen * armor.healthRegenMod * charEffects.GetHealthRegenMod ();
 	}
 	public float GetDamageReduction() {
-		return DEFAULT_damageReduction * armor.damageReductionMod;
-	}
-	public float GetDamageTimer() {
-		return DEFAULT_damageTimer * armor.damageTimerMod;
+		return DEFAULT_damageReduction * armor.damageReductionMod* charEffects.GetDamageReductionMod ();
 	}
 	public float GetMaxMana() {
-		return DEFAULT_maxMana * armor.maxManaMod;
+		return DEFAULT_maxMana * armor.maxManaMod * charEffects.GetMaxManaMod ();
 	}
 	public float GetManaRegen() {
-		return DEFAULT_manaRegen * armor.manaRegenMod;
+		return DEFAULT_manaRegen * armor.manaRegenMod * charEffects.GetManaRegenMod ();
 	}
 	public float GetDamage() {
-		return DEFAULT_damage * armor.damageMod;
+		return DEFAULT_damage * armor.damageMod * charEffects.GetDamageMod ();
 	}
 	public float GetKnockback() {
-		return DEFAULT_knockback * armor.knockbackMod;
+		return DEFAULT_knockback * armor.knockbackMod * charEffects.GetKnockbackMod ();
 	}
 	public float GetAttackTime() {
-		return DEFAULT_attackTime * armor.attackTimeMod;
+		return DEFAULT_attackTime * armor.attackTimeMod * charEffects.GetAttackTimeMod ();
 	}
 	public float GetSpeed() {
-		return DEFAULT_speed * armor.speedMod;
+		return DEFAULT_speed * armor.speedMod * charEffects.GetSpeedMod ();
 	}
 	public float GetJumpSpeed() {
-		return DEFAULT_jumpSpeed * armor.speedMod;
+		return DEFAULT_jumpSpeed * armor.speedMod * charEffects.GetJumpSpeedMod ();
 	}
 }

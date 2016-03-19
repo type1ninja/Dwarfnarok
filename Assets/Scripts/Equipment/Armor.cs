@@ -7,7 +7,6 @@ public class Armor {
 	public float maxHealthMod = 1.0f;
 	public float healthRegenMod = 1.0f;
 	public float damageReductionMod = 1.0f;
-	public float damageTimerMod = 1.0f;
 	public float maxManaMod = 1.0f;
 	public float manaRegenMod = 1.0f;
 	public float damageMod = 1.0f;

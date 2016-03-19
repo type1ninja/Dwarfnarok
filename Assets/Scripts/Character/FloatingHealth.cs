@@ -2,11 +2,11 @@
 using UnityEngine.UI;
 using System.Collections;
 
+//Place on an EMPTY containing a SLIDER and a TEXT BOX
 public class FloatingHealth : MonoBehaviour {
 
-	//TODO - OFFSET NOT WORKING?
 	Vector3 offset = new Vector3 (0, 2.5f, 0);
-	string name = "Generic Name";
+	string charName = "Generic Name";
 
 	Transform character;
 	CharacterHealthMana healthScript;
@@ -23,7 +23,7 @@ public class FloatingHealth : MonoBehaviour {
 
 		slider = GetComponentInChildren<Slider> ();
 		text = GetComponentInChildren<Text> ();
-		text.text = name;
+		text.text = charName;
 	}
 
 	void Update() {

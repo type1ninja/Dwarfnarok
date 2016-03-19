@@ -3,11 +3,21 @@ using System.Collections;
 
 public class PlayerMove : CharacterMove {
 
+	public bool canMove = true;
+
 	protected override Vector3 GetInput() {
-		return new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+		if (canMove) {
+			return new Vector3 (Input.GetAxis ("Horizontal"), 0, Input.GetAxis ("Vertical"));
+		} else {
+			return Vector3.zero;
+		}
 	}
 
 	protected override bool GetJump() {
-		return Input.GetButton ("Jump");
+		if (canMove) {
+			return Input.GetButton ("Jump");
+		} else {
+			return false;
+		}
 	}
 }
