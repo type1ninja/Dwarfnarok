@@ -43,6 +43,8 @@ public class SpellEffect {
 		knockbackMod = templateEffect.knockbackMod;
 		speedMod = templateEffect.speedMod;
 		jumpSpeedMod = templateEffect.jumpSpeedMod;
+
+		duration = templateEffect.duration;
 	}
 
 	public void DecrementTime(float decrement = 0) {
@@ -61,7 +63,7 @@ public class SpellEffect {
 		}
 	}
 
-	//TODO - use this to check whether an effect is already on someone, then just refresh the duration if it is
+	//Use this to check whether an effect is already on someone, then just refresh the duration if it is
 	public bool Equals(SpellEffect otherEffect) {
 		if (instantDamage == otherEffect.instantDamage && instantKnockback == otherEffect.instantKnockback && maxHealthMod == otherEffect.maxHealthMod
 			&& healthRegenMod == otherEffect.healthRegenMod && damageReductionMod == otherEffect.damageReductionMod && maxManaMod == otherEffect.maxManaMod 

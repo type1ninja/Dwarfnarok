@@ -10,6 +10,8 @@ public abstract class CharacterSpellControl : MonoBehaviour {
 	Collider col;
 	CharacterHealthMana healthmana;
 	CharacterStats stats;
+	CharacterEffects charEffects;
+	CharacterMove move;
 
 	//TODO - do dual wield + multiple weapons. For now, though, single-weapon single-wield is fine.
 	public Spell spell = new Spell();
@@ -22,13 +24,14 @@ public abstract class CharacterSpellControl : MonoBehaviour {
 	void Start() {
 		healthmana = GetComponent<CharacterHealthMana> ();
 		stats = GetComponent<CharacterStats> ();
+		charEffects = GetComponent<CharacterEffects> ();
+		move = GetComponent<CharacterMove> ();
 		headTransform = transform.Find ("CharacterHead");
 		handTransform = headTransform.Find ("LeftSpell");
 		col = GetComponent<Collider> ();
 	}
 
 	void FixedUpdate() {
-		//TODO - DIVIDE BETWEEN PLAYER AND AI
 		if (CheckForFire ()) {
 			Fire();
 		}
@@ -56,11 +59,35 @@ public abstract class CharacterSpellControl : MonoBehaviour {
 
 			healthmana.ModMana (-1 * spell.manaCost);
 
-			GameObject activeProjectile = (GameObject) Instantiate(projectilePrefab, handTransform.position, Quaternion.identity);
-			activeProjectile.GetComponent<ProjectileSpell>().SetSpellEffect (spell.GetEffect());
-			activeProjectile.GetComponent<Rigidbody>().AddForce (headTransform.forward * spell.projectileSpeed);
+			//If it's a projectile, targeting friendlies OR enemies
+			if (!spell.isSelfSpell) {
+				GameObject activeProjectile = (GameObject)Instantiate (projectilePrefab, handTransform.position, Quaternion.identity);
+				activeProjectile.GetComponent<ProjectileSpell> ().SetSpellEffect (spell);
+				activeProjectile.GetComponent<Rigidbody> ().AddForce (headTransform.forward * spell.projectileSpeed);
 
-			Physics.IgnoreCollision (activeProjectile.GetComponent<Collider>(), col);
+				Physics.IgnoreCollision (activeProjectile.GetComponent<Collider> (), col);
+			} //If it's a self spell that targets you (not an area around you)
+			else if (spell.isSelfSpell && !spell.AoE) {
+				charEffects.AddEffect (new SpellEffect (spell.effect));
+
+				//Apply knockback only if there's actually knockback to apply
+				if (spell.effect.instantKnockback != 0) {
+					Vector3 force = headTransform.forward;
+					force.y += .5f;
+					force.Normalize ();
+					force *= spell.effect.instantKnockback;
+					//Stop all motion, then apply knockback--maybe change?
+					move.StopMotion ();
+					move.AddKnockback (force);
+				}
+			} //If it's a self spell that is AoE
+			//TODO - base targeting on whether it targets enemies
+			else if (spell.isSelfSpell && spell.AoE) {
+				//Just spawn a projectile without any velocity
+				GameObject activeProjectile = (GameObject)Instantiate (projectilePrefab, transform.position, Quaternion.identity);
+				activeProjectile.GetComponent<ProjectileSpell> ().SetSpellEffect (spell);
+				activeProjectile.GetComponent<ProjectileSpell> ().Explode ();
+			}
 		}
 	}
 

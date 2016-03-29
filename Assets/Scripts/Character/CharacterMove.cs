@@ -41,6 +41,10 @@ public abstract class CharacterMove : MonoBehaviour {
 		controller.Move(moveDirection * Time.deltaTime);
 	}
 
+	public void StopMotion() {
+		moveDirection = Vector3.zero;
+	}
+
 	//Enemies can add knockback by basically adding a vector to the player's move, then lifting them into the air
 	//Then, since the player can't move around in midair, they've taken knockback
 	//Force isn't really a force, it's more like a new move direction
@@ -48,6 +52,10 @@ public abstract class CharacterMove : MonoBehaviour {
 		controller.Move(new Vector3(0, .03f, 0));
 		//add force to the motion
 		moveDirection += force;
+	}
+
+	public Vector3 GetMoveDir() {
+		return moveDirection;
 	}
 	
 	//For the player, this is WASD

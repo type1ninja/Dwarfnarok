@@ -36,9 +36,9 @@ public class CharacterEffects : MonoBehaviour {
 			effects.Add (newEffect);
 		} 
 
-		//Do damage and knockback regardless
+		//Do damage regardless
 		healthmana.ModHealth (-1 * newEffect.instantDamage);
-		//TODO - KNOCKBACK
+		//Knockback is applied within the "projectile spell" code
 	}
 
 	//All the methods for getting total stat mods

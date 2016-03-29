@@ -66,6 +66,6 @@ public class CharacterStats : MonoBehaviour {
 		return DEFAULT_speed * armor.speedMod * charEffects.GetSpeedMod ();
 	}
 	public float GetJumpSpeed() {
-		return DEFAULT_jumpSpeed * armor.speedMod * charEffects.GetJumpSpeedMod ();
+		return DEFAULT_jumpSpeed * armor.jumpSpeedMod * charEffects.GetJumpSpeedMod ();
 	}
 }

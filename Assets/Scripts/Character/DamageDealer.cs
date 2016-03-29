@@ -8,13 +8,11 @@ public class DamageDealer : MonoBehaviour {
 
 	List<Transform> hitTrans;
 
-	static Vector3 KNOCKBACK_OFFSET;
+	static Vector3 KNOCKBACK_OFFSET = new Vector3(0, 2f, 0);
 
 	void Start() {
 		charWepCtrl = GetComponentInParent<CharacterWepControl> ();
 		hitTrans = new List<Transform> ();
-
-		KNOCKBACK_OFFSET = new Vector3 (0, 2f, 0);
 	}
 
 	public void ResetHitList() {

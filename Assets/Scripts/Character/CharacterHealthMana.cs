@@ -4,7 +4,7 @@ using System.Collections;
 public class CharacterHealthMana : MonoBehaviour {
 
 	//Void damage per second
-	float VOIDDMGPERSEC = -750;
+	float VOIDDMGPERSEC = -75;
 
 	CharacterStats stats;
 

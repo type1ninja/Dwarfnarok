@@ -23,17 +23,19 @@ public class SpellCustomizer : MonoBehaviour {
 	Slider knockbackSlider;
 	Slider speedSlider;
 	Slider jumpSpeedSlider;
+	Slider instantDamageSlider;
+	Slider instantKnockbackSlider; 
+	Slider projectileSpeedSlider;
+	Slider radiusSlider;
+	Slider durationSlider;
 
-	float maxHealthLastValue;
-	float healthRegenLastValue;
-	float damageReductionLastValue;
-	float maxManaLastValue;
-	float manaRegenLastValue;
-	float damageLastValue;
-	float attackTimeLastValue;
-	float knockbackLastValue;
-	float speedLastValue;
-	float jumpSpeedLastValue;
+	Toggle targetToggle;
+	Toggle self;
+	Toggle AoE;
+	Toggle affectedByGravity;
+
+	Text durationLabel;
+	Text radiusLabel;
 
 	void Start () {
 		spell = GameObject.Find ("Player").GetComponent<CharacterSpellControl> ().spell;
@@ -54,6 +56,19 @@ public class SpellCustomizer : MonoBehaviour {
 		knockbackSlider = transform.Find ("Sliders").Find ("KnockbackSlider").GetComponent<Slider> ();
 		speedSlider = transform.Find ("Sliders").Find ("SpeedSlider").GetComponent<Slider> ();
 		jumpSpeedSlider = transform.Find ("Sliders").Find ("JumpSpeedSlider").GetComponent<Slider> ();
+		instantDamageSlider = transform.Find ("Sliders").Find ("InstantDamageSlider").GetComponent<Slider> ();
+		instantKnockbackSlider = transform.Find ("Sliders").Find ("InstantKnockbackSlider").GetComponent<Slider> ();
+		projectileSpeedSlider = transform.Find ("Sliders").Find ("ProjectileSpeedSlider").GetComponent<Slider>();
+		radiusSlider = transform.Find ("Sliders").Find ("RadiusSlider").GetComponent<Slider> ();
+		durationSlider = transform.Find ("Sliders").Find ("DurationSlider").GetComponent<Slider> ();
+
+		targetToggle = transform.Find ("Checkboxes").Find ("TargetsEnemies").GetComponent<Toggle> ();
+		self = transform.Find ("Checkboxes").Find ("Self").GetComponent<Toggle> ();
+		affectedByGravity = transform.Find ("Checkboxes").Find ("Gravity").GetComponent<Toggle> ();
+		AoE = transform.Find ("Checkboxes").Find ("AoE").GetComponent<Toggle> ();
+
+		radiusLabel = transform.Find ("Labels").Find ("RadiusLabel").GetComponent<Text> ();
+		durationLabel = transform.Find ("Labels").Find ("DurationLabel").GetComponent<Text> ();
 	}
 
 	public void Reset() {
@@ -67,6 +82,16 @@ public class SpellCustomizer : MonoBehaviour {
 		knockbackSlider.value = 1;
 		speedSlider.value = 1;
 		jumpSpeedSlider.value = 1;
+		instantDamageSlider.value = 0;
+		instantKnockbackSlider.value = 0;
+		projectileSpeedSlider.value = 2500;
+		radiusSlider.value = 1;
+		durationSlider.value = 3;
+
+		targetToggle.isOn = true;
+		self.isOn = false;
+		AoE.isOn = false;
+		affectedByGravity.isOn = true;
 	}
 	
 	//TODO - ALLOW CUSTOMIZATION OF INSTANT EFFECTS, AOE, FRIENDLY/ENEMY TARGETING, SHOW MANA COST
@@ -94,5 +119,18 @@ public class SpellCustomizer : MonoBehaviour {
 		spell.effect.knockbackMod = knockbackSlider.value;
 		spell.effect.speedMod = speedSlider.value;
 		spell.effect.jumpSpeedMod = jumpSpeedSlider.value;
+		spell.effect.instantDamage = instantDamageSlider.value;
+		spell.effect.instantKnockback = instantKnockbackSlider.value;
+		spell.projectileSpeed = projectileSpeedSlider.value;
+		spell.radius = radiusSlider.value;
+		spell.effect.duration = durationSlider.value;
+
+		spell.targetsEnemies = targetToggle.isOn;
+		spell.isSelfSpell = self.isOn;
+		spell.AoE = AoE.isOn;
+		spell.affectedByGravity = affectedByGravity.isOn;
+
+		radiusLabel.text = "AoE Radius: " + radiusSlider.value.ToString("F1");
+		durationLabel.text = "Duration: " + durationSlider.value.ToString("F2") + "s";
 	}
 }
