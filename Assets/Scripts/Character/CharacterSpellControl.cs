@@ -28,7 +28,6 @@ public abstract class CharacterSpellControl : MonoBehaviour {
 		move = GetComponent<CharacterMove> ();
 		headTransform = transform.Find ("CharacterHead");
 		handTransform = headTransform.Find ("LeftSpell");
-		col = GetComponent<Collider> ();
 	}
 
 	void FixedUpdate() {
@@ -65,7 +64,9 @@ public abstract class CharacterSpellControl : MonoBehaviour {
 				activeProjectile.GetComponent<ProjectileSpell> ().SetSpellEffect (spell);
 				activeProjectile.GetComponent<Rigidbody> ().AddForce (headTransform.forward * spell.projectileSpeed);
 
-				Physics.IgnoreCollision (activeProjectile.GetComponent<Collider> (), col);
+				Physics.IgnoreCollision (activeProjectile.GetComponent<Collider> (), GetComponent<Collider>());
+				Physics.IgnoreCollision (activeProjectile.GetComponent<Collider> (), transform.Find ("CharacterHead").Find ("RightWep").Find ("RightWepHandle").GetComponent<Collider>());
+				Physics.IgnoreCollision (activeProjectile.GetComponent<Collider> (), transform.Find ("CharacterHead").Find ("RightWep").Find ("RightWepBlade").GetComponent<Collider>());
 			} //If it's a self spell that targets you (not an area around you)
 			else if (spell.isSelfSpell && !spell.AoE) {
 				charEffects.AddEffect (new SpellEffect (spell.effect));
@@ -81,7 +82,6 @@ public abstract class CharacterSpellControl : MonoBehaviour {
 					move.AddKnockback (force);
 				}
 			} //If it's a self spell that is AoE
-			//TODO - base targeting on whether it targets enemies
 			else if (spell.isSelfSpell && spell.AoE) {
 				//Just spawn a projectile without any velocity
 				GameObject activeProjectile = (GameObject)Instantiate (projectilePrefab, transform.position, Quaternion.identity);

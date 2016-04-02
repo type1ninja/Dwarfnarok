@@ -23,10 +23,14 @@ public class ProjectileSpell : MonoBehaviour {
 	bool hasExploded = false;
 	float radius = 1;
 
+	void Start() {
+		transform.Find ("Explosion").gameObject.SetActive(false);
+	}
+
 	void FixedUpdate() {
 		deathTimer -= Time.fixedDeltaTime;
 		if (deathTimer <= 0) {
-			Destroy (gameObject);
+			DestroySelf ();
 		}
 		//Record the velocity
 		lastVelocity = velocity;
@@ -62,21 +66,34 @@ public class ProjectileSpell : MonoBehaviour {
 			other.gameObject.GetComponentInParent<CharacterMove> ().AddKnockback (force);
 			//TODO - If you hit a rigid body, apply knockback to those?
 		} 
-
 		//If you are AoE and haven't exploded, set yourself to explode next tick as well as increasing the radius.
 		if (AoE && !hasExploded) {
 			Explode ();
 		} else {
-			if (GetComponentInChildren<ParticleSystem> ()) {
-				GetComponentInChildren<ParticleSystem> ().Stop ();
-				transform.DetachChildren ();
-			}
-			Destroy (gameObject);
+			DestroySelf ();
 		}
 	}
 
 	public void Explode() {
 		hasExploded = true;
 		GetComponent<SphereCollider> ().radius = radius;
+	}
+
+	void DestroySelf() {
+		if (transform.Find ("Trail") && transform.Find ("Explosion")){
+			//Stop it from looping instead of stopping because stopping the loop makes current particles
+			//fade and *then* stop
+			transform.Find ("Trail").GetComponent<ParticleSystem> ().loop = false;
+			ParticleSystem expl = transform.Find ("Explosion").GetComponent<ParticleSystem>();
+			expl.gameObject.SetActive (true);
+			if (AoE) {
+				//Speed is dampened at .1 seconds--clamped to zero. So, it needs to travel 5 times as fast to reach 
+				//the edge of the radius by that time
+				expl.startSpeed = radius * 10;
+				expl.Play ();
+			}
+			transform.DetachChildren ();
+		}
+		Destroy (gameObject);
 	}
 }

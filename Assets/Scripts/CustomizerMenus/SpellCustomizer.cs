@@ -36,6 +36,7 @@ public class SpellCustomizer : MonoBehaviour {
 
 	Text durationLabel;
 	Text radiusLabel;
+	Text costLabel;
 
 	void Start () {
 		spell = GameObject.Find ("Player").GetComponent<CharacterSpellControl> ().spell;
@@ -69,6 +70,7 @@ public class SpellCustomizer : MonoBehaviour {
 
 		radiusLabel = transform.Find ("Labels").Find ("RadiusLabel").GetComponent<Text> ();
 		durationLabel = transform.Find ("Labels").Find ("DurationLabel").GetComponent<Text> ();
+		costLabel = transform.Find ("Labels").Find ("CostLabel").GetComponent<Text> ();
 	}
 
 	public void Reset() {
@@ -132,5 +134,8 @@ public class SpellCustomizer : MonoBehaviour {
 
 		radiusLabel.text = "AoE Radius: " + radiusSlider.value.ToString("F1");
 		durationLabel.text = "Duration: " + durationSlider.value.ToString("F2") + "s";
+		costLabel.text = "Cost: " + spell.manaCost.ToString ("F1");
+
+		spell.CalculateCost ();
 	}
 }
