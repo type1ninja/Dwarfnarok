@@ -30,6 +30,7 @@ public abstract class CharacterSpellControl : MonoBehaviour {
 		handTransform = headTransform.Find ("LeftSpell");
 	}
 
+	//TODO - make firing speed dependent on player attack speed
 	void FixedUpdate() {
 		if (CheckForFire ()) {
 			Fire();
@@ -70,7 +71,12 @@ public abstract class CharacterSpellControl : MonoBehaviour {
 			} //If it's a self spell that targets you (not an area around you)
 			else if (spell.isSelfSpell && !spell.AoE) {
 				charEffects.AddEffect (new SpellEffect (spell.effect));
+				//Aesthetic spell spawn
+				GameObject activeProjectile = (GameObject)Instantiate (projectilePrefab, handTransform.position, Quaternion.identity);
+				//Set the spell to a blank one
 
+				activeProjectile.GetComponent<ProjectileSpell> ().DestroySelf ();
+				activeProjectile.GetComponent<ProjectileSpell> ().SetSpellEffect (new Spell());
 				//Apply knockback only if there's actually knockback to apply
 				if (spell.effect.instantKnockback != 0) {
 					Vector3 force = headTransform.forward;

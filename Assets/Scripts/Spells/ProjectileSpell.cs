@@ -79,7 +79,7 @@ public class ProjectileSpell : MonoBehaviour {
 		GetComponent<SphereCollider> ().radius = radius;
 	}
 
-	void DestroySelf() {
+	public void DestroySelf() {
 		if (transform.Find ("Trail") && transform.Find ("Explosion")){
 			//Stop it from looping instead of stopping because stopping the loop makes current particles
 			//fade and *then* stop

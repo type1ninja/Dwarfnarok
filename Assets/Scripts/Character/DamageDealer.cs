@@ -29,7 +29,7 @@ public class DamageDealer : MonoBehaviour {
 			if (!other.transform.IsChildOf (transform)) {
 
 				//Check if it's supposed to take damage
-				if (other.tag.Equals ("AI") || other.tag.Equals ("Player")) {
+				if (other.tag.Equals ("AI")) {
 
 					//Check if it's in the list of stuff you've hit during this swing
 					//If it is, skip it

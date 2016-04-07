@@ -108,6 +108,7 @@ GameObject:
   - 114: {fileID: 11475120}
   - 114: {fileID: 11471856}
   - 114: {fileID: 11414346}
+  - 114: {fileID: 11410314}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -140,8 +141,8 @@ Transform:
   m_LocalPosition: {x: -.0379999988, y: -.629000008, z: .533999979}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 458456}
   - {fileID: 438122}
+  - {fileID: 458456}
   m_Father: {fileID: 488884}
   m_RootOrder: 0
 --- !u!4 &438122
@@ -151,11 +152,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 124642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.39900005, z: .757000029}
+  m_LocalPosition: {x: 0, y: 1.14300001, z: .757000029}
   m_LocalScale: {x: .800000012, y: .800000012, z: .100000001}
   m_Children: []
   m_Father: {fileID: 430694}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!4 &446850
 Transform:
   m_ObjectHideFlags: 1
@@ -177,11 +178,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 132112}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.02400005, z: .757000029}
+  m_LocalPosition: {x: 0, y: .768000007, z: .757000029}
   m_LocalScale: {x: .150000006, y: 1.60000002, z: .150000006}
   m_Children: []
   m_Father: {fileID: 430694}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &473834
 Transform:
   m_ObjectHideFlags: 1
@@ -397,6 +398,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canSwing: 1
+--- !u!114 &11410314
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aebd125f1d20857419356ef33b829cc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bladeTrans: {fileID: 438122}
+  handleTrans: {fileID: 458456}
 --- !u!114 &11414346
 MonoBehaviour:
   m_ObjectHideFlags: 1
