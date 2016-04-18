@@ -5,7 +5,7 @@ using System.Collections;
 public class Spell {
 
 	static float BASIC_MANA_COST = 10f;
-	static float GRAVITY_COST_MODIFIER = .85f;
+	static float GRAVITY_COST_MODIFIER = 0.90f;
 
 	public SpellEffect effect;
 
@@ -14,10 +14,14 @@ public class Spell {
 	public bool AoE = false;
 
 	public float manaCost;
-	public float attackTime = .75f;
+	public float attackTime = 0.75f;
 	public float projectileSpeed = 2500f;
 	public bool affectedByGravity = true;
 	public float radius = 1;
+	public float lifetime = 4f;
+	public float size = 1f;
+
+	public Color col = new Color(1, 1, 1);
 
 	public Spell() {
 		effect = new SpellEffect ();
@@ -84,18 +88,26 @@ public class Spell {
 			manaCost *= (effect.duration / 3);
 		}
 
-		//Being affected by gravity decreases the effective range, so make that reduce cost (but only slightly)
-		if (affectedByGravity) {
-			manaCost *= GRAVITY_COST_MODIFIER; //Maybe .85 for now?
-		}
+		//Stuff only for projectiles
+		if (!isSelfSpell) { 
+			//Projectile speed is weird. Between 1000 and the max, the player is either reducing the cost by 
+			//making it slower or increasing it by making it faster. Below 1000, though, there’s a good chance 
+			//the player is doing it on purpose (bombs, landmines), so that just stays default (multiplier of 1)
+			if (projectileSpeed > 1000) {
+				manaCost *= projectileSpeed / 2500;
+			} else if (projectileSpeed <= 1000) {
+				manaCost *= 1; //Do nothing
+			}
 
-		//Projectile speed is weird. Between 1000 and the max, the player is either reducing the cost by 
-		//making it slower or increasing it by making it faster. Below 1000, though, there’s a good chance 
-		//the player is doing it on purpose (bombs, landmines), so that just stays default (multiplier of 1)
-		if (projectileSpeed > 1000) {
-			manaCost *= projectileSpeed / 2500;
-		} else if (projectileSpeed <= 1000) {
-			manaCost *= 1; //Do nothing
+			//Being affected by gravity decreases the effective range, so make that reduce cost (but only slightly)
+			if (affectedByGravity) {
+				manaCost *= GRAVITY_COST_MODIFIER; //Maybe .85 for now?
+			}
+
+			//Lifetime cost--just multiply by the cost. A 1 sec range isn't unreasonable
+			manaCost *= lifetime;
+			//Size--same thing
+			manaCost *= size;
 		}
 	}
 }

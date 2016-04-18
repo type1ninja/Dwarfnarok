@@ -7,6 +7,7 @@ public class CharacterHealthMana : MonoBehaviour {
 	float VOIDDMGPERSEC = -75;
 
 	CharacterStats stats;
+	CharacterMove move;
 
 	float health;
 	float mana;
@@ -15,6 +16,7 @@ public class CharacterHealthMana : MonoBehaviour {
 
 	void Start() {
 		stats = GetComponent<CharacterStats> ();
+		move = GetComponent<CharacterMove> ();
 	}
 
 	void FixedUpdate() {
@@ -63,7 +65,9 @@ public class CharacterHealthMana : MonoBehaviour {
 	void Die() {
 		transform.position = new Vector3 (0, 5, 0);
 		health = stats.GetMaxHealth();
-		mana = stats.GetMaxHealth ();
+		mana = stats.GetMaxMana ();
+		move.StopMotion ();
+
 	}
 
 	public float GetMaxHealth() {

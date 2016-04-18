@@ -14,7 +14,7 @@ public class ProjectileSpell : MonoBehaviour {
 	//The velocity of the spell last tick
 	Vector3 lastVelocity;
 
-	float deathTimer = 8f;
+	float deathTimer = 4f;
 
 	bool targetsEnemies = true;
 	bool AoE = false;
@@ -43,9 +43,19 @@ public class ProjectileSpell : MonoBehaviour {
 		AoE = newSpell.AoE;
 		rb.useGravity = newSpell.affectedByGravity;
 		radius = newSpell.radius;
+		deathTimer = newSpell.lifetime;
+	
+		GetComponent<SphereCollider> ().radius = newSpell.size;
+
+		if (transform.Find ("Trail") && transform.Find ("Explosion")) {
+			transform.Find ("Trail").GetComponent<ParticleSystem> ().startSize *= newSpell.size;
+			transform.Find ("Trail").GetComponent<ParticleSystem> ().startColor = newSpell.col;
+			transform.Find ("Explosion").GetComponent<ParticleSystem> ().startColor = newSpell.col;
+		}
 	}
 
 	void OnTriggerEnter(Collider other) {
+
 		//If a spell targets enemies and is hitting an enemy,
 		if ((targetsEnemies && other.gameObject.tag.Equals ("AI")) 
 			//or targets friendlies and is hitting a friendly--TODO replace "false" with friendly AI tag
@@ -80,7 +90,7 @@ public class ProjectileSpell : MonoBehaviour {
 	}
 
 	public void DestroySelf() {
-		if (transform.Find ("Trail") && transform.Find ("Explosion")){
+		if (transform.Find ("Trail") && transform.Find ("Explosion")) {
 			//Stop it from looping instead of stopping because stopping the loop makes current particles
 			//fade and *then* stop
 			transform.Find ("Trail").GetComponent<ParticleSystem> ().loop = false;

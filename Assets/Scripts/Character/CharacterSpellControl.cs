@@ -8,6 +8,7 @@ public abstract class CharacterSpellControl : MonoBehaviour {
 	Transform headTransform;
 	Transform handTransform;
 	Collider col;
+	ParticleSystem handParticles;
 	CharacterHealthMana healthmana;
 	CharacterStats stats;
 	CharacterEffects charEffects;
@@ -28,6 +29,7 @@ public abstract class CharacterSpellControl : MonoBehaviour {
 		move = GetComponent<CharacterMove> ();
 		headTransform = transform.Find ("CharacterHead");
 		handTransform = headTransform.Find ("LeftSpell");
+		handParticles = handTransform.GetComponent<ParticleSystem> ();
 	}
 
 	//TODO - make firing speed dependent on player attack speed
@@ -49,6 +51,8 @@ public abstract class CharacterSpellControl : MonoBehaviour {
 				isFiring = false;
 			}
 		}
+
+		handParticles.startColor = spell.col;
 	}
 
 	//TODO - SPELL TYPES

@@ -20,7 +20,7 @@ public class DamageDealer : MonoBehaviour {
 	}
 
 	//Check if you're intersecting something
-	void OnTriggerEnter(Collider other) {
+	void OnTriggerStay(Collider other) {
 
 		//Check if you're actually swinging - people just walking into weapons and dying would be bad
 		if (charWepCtrl.GetIsSwinging()) {
