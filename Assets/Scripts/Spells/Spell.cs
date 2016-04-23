@@ -18,8 +18,8 @@ public class Spell {
 	public float projectileSpeed = 2500f;
 	public bool affectedByGravity = true;
 	public float radius = 1;
-	public float lifetime = 4f;
-	public float size = 1f;
+	public float lifetime = 1;
+	public float size = 1;
 
 	public Color col = new Color(1, 1, 1);
 

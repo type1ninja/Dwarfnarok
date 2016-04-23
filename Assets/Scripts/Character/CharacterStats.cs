@@ -7,8 +7,9 @@ public class CharacterStats : MonoBehaviour {
 	float DEFAULT_maxHealth = 100f;
 	//In health per second
 	float DEFAULT_healthRegen = 2.5f;
-	//Percent of damage blocked by armor
-	float DEFAULT_damageReduction = .10f;
+	//Percent of damage/knockback blocked by armor
+	//This is handled mainly in the armor class; we let that be the base stat as the "default" value is zero
+	float DEFAULT_damageReduction = 1f;
 
 	//manaRegen = mana/sec
 	float DEFAULT_manaRegen = 10f;

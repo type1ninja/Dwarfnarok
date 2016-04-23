@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//This goes on something which holds a weapon
 public class WeaponSize : MonoBehaviour {
 
 	//Sword scales
@@ -24,6 +25,11 @@ public class WeaponSize : MonoBehaviour {
 
 	public Transform bladeTrans;
 	public Transform handleTrans;
+
+	void Start() {
+		//Reset weapon on startup
+		UpdateSize (WeaponType.AXE, 1, 1);
+	}
 
 	//Note that there ARE some differences between sword, axe, and hammer calculations
 	public void UpdateSize(WeaponType newType, float bladeScale, float handleScale) {

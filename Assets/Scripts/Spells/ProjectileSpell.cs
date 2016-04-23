@@ -14,7 +14,7 @@ public class ProjectileSpell : MonoBehaviour {
 	//The velocity of the spell last tick
 	Vector3 lastVelocity;
 
-	float deathTimer = 4f;
+	float deathTimer = 1;
 
 	bool targetsEnemies = true;
 	bool AoE = false;
@@ -58,8 +58,10 @@ public class ProjectileSpell : MonoBehaviour {
 
 		//If a spell targets enemies and is hitting an enemy,
 		if ((targetsEnemies && other.gameObject.tag.Equals ("AI")) 
-			//or targets friendlies and is hitting a friendly--TODO replace "false" with friendly AI tag
-			|| (!targetsEnemies && (other.gameObject.tag.Equals("Player") || false))) {
+			//or targets friendlies and is hitting a player after having exploded
+			|| (!targetsEnemies && (other.gameObject.tag.Equals("Player")) && hasExploded)
+			//or targets friendlies and is hitting a friendly--TODO replace "false" with the friendly tag
+			|| !targetsEnemies && false) {
 
 			other.gameObject.GetComponent<CharacterEffects> ().AddEffect (effect);
 
@@ -76,11 +78,15 @@ public class ProjectileSpell : MonoBehaviour {
 			other.gameObject.GetComponentInParent<CharacterMove> ().AddKnockback (force);
 			//TODO - If you hit a rigid body, apply knockback to those?
 		} 
-		//If you are AoE and haven't exploded, set yourself to explode next tick as well as increasing the radius.
-		if (AoE && !hasExploded) {
-			Explode ();
-		} else {
-			DestroySelf ();
+
+		//Don't bother destroying yourself if you hit a player 
+		if (!other.tag.Equals ("Player")) {
+			//If you are AoE and haven't exploded, set yourself to explode next tick as well as increasing the radius.
+			if (AoE && !hasExploded) {
+				Explode ();
+			} else {
+				DestroySelf ();
+			}
 		}
 	}
 

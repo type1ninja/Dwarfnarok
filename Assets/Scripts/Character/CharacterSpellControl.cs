@@ -69,11 +69,12 @@ public abstract class CharacterSpellControl : MonoBehaviour {
 				activeProjectile.GetComponent<ProjectileSpell> ().SetSpellEffect (spell);
 				activeProjectile.GetComponent<Rigidbody> ().AddForce (headTransform.forward * spell.projectileSpeed);
 
-				Physics.IgnoreCollision (activeProjectile.GetComponent<Collider> (), GetComponent<Collider>());
+				//We no longer ignore the player, as we want AoE friendly spells to hit them, but their weapons *are* ignored
+				//Physics.IgnoreCollision (activeProjectile.GetComponent<Collider> (), GetComponent<Collider>());
 				Physics.IgnoreCollision (activeProjectile.GetComponent<Collider> (), transform.Find ("CharacterHead").Find ("RightWep").Find ("RightWepHandle").GetComponent<Collider>());
 				Physics.IgnoreCollision (activeProjectile.GetComponent<Collider> (), transform.Find ("CharacterHead").Find ("RightWep").Find ("RightWepBlade").GetComponent<Collider>());
-			} //If it's a self spell that targets you (not an area around you)
-			else if (spell.isSelfSpell && !spell.AoE) {
+			} //If it's a self spell that targets you (not an area around you or enemies)
+			else if (spell.isSelfSpell && !spell.AoE && !spell.targetsEnemies) {
 				charEffects.AddEffect (new SpellEffect (spell.effect));
 				//Aesthetic spell spawn
 				GameObject activeProjectile = (GameObject)Instantiate (projectilePrefab, handTransform.position, Quaternion.identity);
@@ -87,8 +88,8 @@ public abstract class CharacterSpellControl : MonoBehaviour {
 					force.y += .5f;
 					force.Normalize ();
 					force *= spell.effect.instantKnockback;
-					//Stop all motion, then apply knockback--maybe change?
-					move.StopMotion ();
+					//Stop motion before applying knockback if the next line is uncommented
+					//move.StopMotion ();
 					move.AddKnockback (force);
 				}
 			} //If it's a self spell that is AoE

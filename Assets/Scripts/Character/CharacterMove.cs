@@ -51,7 +51,7 @@ public abstract class CharacterMove : MonoBehaviour {
 	public void AddKnockback(Vector3 force) {
 		controller.Move(new Vector3(0, .03f, 0));
 		//add force to the motion
-		moveDirection += force;
+		moveDirection += (force * (1 - stats.GetDamageReduction()));
 	}
 
 	public Vector3 GetMoveDir() {

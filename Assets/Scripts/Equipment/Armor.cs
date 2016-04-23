@@ -6,7 +6,7 @@ public class Armor {
 	//Percentage modifiers
 	public float maxHealthMod = 1.0f;
 	public float healthRegenMod = 1.0f;
-	public float damageReductionMod = 1.0f;
+	public float damageReductionMod = 0f;
 	public float maxManaMod = 1.0f;
 	public float manaRegenMod = 1.0f;
 	public float damageMod = 1.0f;

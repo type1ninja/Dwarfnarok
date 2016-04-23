@@ -146,7 +146,7 @@ public class SpellCustomizer : MonoBehaviour {
 	void Update () {
 
 		//TODO - allow the interaction button to close this as well
-		if (Input.GetButton ("Cancel")) {
+		if (Input.GetButtonDown ("Cancel") || Input.GetButtonDown ("Interact")) {
 			mover.canMove = true;
 			mouseLook.shouldLook = true;
 			wepControl.canSwing = true;

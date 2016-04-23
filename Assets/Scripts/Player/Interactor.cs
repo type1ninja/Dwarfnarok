@@ -13,7 +13,7 @@ public class Interactor : MonoBehaviour {
 	PlayerWepControl wepControl;
 	PlayerSpellControl spellControl;
 
-	float range = 1000.0f;
+	float range = 10.0f;
 
 	void Start() {
 		charHead = transform.Find ("CharacterHead");
@@ -39,19 +39,21 @@ public class Interactor : MonoBehaviour {
 		wepControl.canSwing = false;
 		spellControl.canFire = false;
 	}
-
-	//TODO - MAKE THE INTERACT BUTTON CLOSE OPEN MENUS
+		
 	void Update() {
-		if (Input.GetButton ("Interact")) {
-			//TODO - MAKE RAYCAST NOT HIT PLAYER
+		if (Input.GetButtonDown ("Interact") && !wepCustomizerPanel.activeInHierarchy && !armorCustomizerPanel.activeInHierarchy && !spellCustomizerPanel.activeInHierarchy) {
+		
 			RaycastHit hit;
-			if (Physics.Raycast(transform.position, charHead.forward, out hit, range)) {
+			if (Physics.Raycast(charHead.position, charHead.forward, out hit, range)) {
 
-				//Long list of possible tags for an "interactable" object
+
 				string hitTag = hit.transform.tag;
 
-				//Overall disabling
+
+				//Long list of possible tags for an "interactable" object
 				if (hitTag.Equals ("WeaponCustomizer") || hitTag.Equals ("ArmorCustomizer") || hitTag.Equals ("SpellCustomizer")) {
+					//Overall disabling
+
 					DisablePlayer ();
 
 					if (hitTag.Equals ("WeaponCustomizer")) {
