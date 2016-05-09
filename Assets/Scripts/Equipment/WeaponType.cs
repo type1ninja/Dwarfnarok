@@ -1,9 +1,7 @@
 ﻿public enum WeaponType {
-	SWORD, AXE, HAMMER, SHIELD, TORCH
+	SWORD, AXE, HAMMER
 	//'SWORD' identifies swords, spears, and daggers
 	//'AXE' identifies... axes
 	//'HAMMER' identifies hammers and punching gloves
-	//'SHIELD' identifies shields
-	//'TORCH' identifies torches
-	//TODO - GRAPPLING HOOKS LIKE IN FORTRESSCRAFT! 
+	//TODO - SHIELDS, TORCHES, GRAPPLING HOOKS LIKE IN FORTRESSCRAFT! 
 }
