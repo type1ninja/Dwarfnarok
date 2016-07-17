@@ -21,7 +21,7 @@ public class CharacterStats : MonoBehaviour {
 	float DEFAULT_attackTime = .75f;
 	
 	float DEFAULT_speed = 10f;
-	float DEFAULT_jumpSpeed = 8f;
+	float DEFAULT_jumpSpeed = 6.5f;
 
 	//The armor is pretty much modifiable-in-game player stats
 	public Armor armor = new Armor();
