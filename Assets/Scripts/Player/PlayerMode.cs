@@ -9,6 +9,8 @@ public class PlayerMode : MonoBehaviour {
 	PlayerSpellControl spellControl;
 	PlayerBuild playerBuild;
 
+	GameObject blockText;
+
 	//Keeps track of which mode you're in. true = weapon mode, false = build mode
 	bool isWeaponMode = true;
 
@@ -18,6 +20,8 @@ public class PlayerMode : MonoBehaviour {
 		wepControl = GetComponent<PlayerWepControl> ();
 		spellControl = GetComponent<PlayerSpellControl> ();
 		playerBuild = GetComponentInChildren<PlayerBuild> ();
+
+		blockText = GameObject.Find ("BlockText");
 
 		WeaponMode ();
 	}
@@ -49,6 +53,7 @@ public class PlayerMode : MonoBehaviour {
 
 		//Disable build things
 		playerBuild.enabled = false;
+		blockText.SetActive (false);
 	}
 
 	void BuildMode() {
@@ -63,5 +68,6 @@ public class PlayerMode : MonoBehaviour {
 
 		//Enable build things
 		playerBuild.enabled = true;
+		blockText.SetActive (true);
 	}
 }
