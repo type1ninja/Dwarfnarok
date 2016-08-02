@@ -1,21 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &100940
+--- !u!1 &101166
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 487888}
-  - 114: {fileID: 11429476}
-  - 114: {fileID: 11408784}
-  - 114: {fileID: 11483332}
-  - 114: {fileID: 11467392}
-  - 114: {fileID: 11403236}
-  - 114: {fileID: 11447936}
-  - 114: {fileID: 11433488}
-  - 114: {fileID: 11436550}
+  - 4: {fileID: 440986}
+  - 114: {fileID: 11469032}
+  - 114: {fileID: 11441614}
+  - 114: {fileID: 11472370}
+  - 114: {fileID: 11408338}
+  - 114: {fileID: 11496124}
+  - 114: {fileID: 11406392}
+  - 114: {fileID: 11425226}
+  - 114: {fileID: 11463726}
   m_Layer: 0
   m_Name: Block Types
   m_TagString: Untagged
@@ -23,47 +23,47 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &104736
+--- !u!1 &145522
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 479208}
-  - 114: {fileID: 11498696}
-  - 114: {fileID: 11456570}
+  - 4: {fileID: 457158}
+  - 114: {fileID: 11459658}
+  - 114: {fileID: 11415420}
   m_Layer: 0
-  m_Name: World
+  m_Name: DwarfWorld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &184620
+--- !u!1 &170528
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 410382}
-  - 114: {fileID: 11413014}
-  - 114: {fileID: 11418280}
-  - 114: {fileID: 11438196}
-  - 114: {fileID: 11460328}
-  - 114: {fileID: 11403132}
-  - 114: {fileID: 11478306}
-  - 114: {fileID: 11446294}
-  - 114: {fileID: 11476858}
-  - 114: {fileID: 11430418}
-  - 114: {fileID: 11453230}
-  - 114: {fileID: 11427492}
-  - 114: {fileID: 11408636}
-  - 114: {fileID: 11496202}
-  - 114: {fileID: 11444470}
-  - 114: {fileID: 11413568}
-  - 114: {fileID: 11496026}
+  - 4: {fileID: 410460}
+  - 114: {fileID: 11496654}
+  - 114: {fileID: 11440588}
+  - 114: {fileID: 11416694}
+  - 114: {fileID: 11456628}
+  - 114: {fileID: 11462940}
+  - 114: {fileID: 11438388}
+  - 114: {fileID: 11401074}
+  - 114: {fileID: 11402170}
+  - 114: {fileID: 11493918}
+  - 114: {fileID: 11484562}
+  - 114: {fileID: 11453474}
+  - 114: {fileID: 11422460}
+  - 114: {fileID: 11474802}
+  - 114: {fileID: 11497292}
+  - 114: {fileID: 11409370}
+  - 114: {fileID: 11474582}
   m_Layer: 0
   m_Name: Terrain Layers
   m_TagString: Untagged
@@ -71,94 +71,73 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &410382
+--- !u!4 &410460
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184620}
+  m_GameObject: {fileID: 170528}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 479208}
+  m_Father: {fileID: 457158}
   m_RootOrder: 1
---- !u!4 &479208
+--- !u!4 &440986
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104736}
+  m_GameObject: {fileID: 101166}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 457158}
+  m_RootOrder: 0
+--- !u!4 &457158
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145522}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 487888}
-  - {fileID: 410382}
+  - {fileID: 440986}
+  - {fileID: 410460}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!4 &487888
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100940}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 479208}
-  m_RootOrder: 0
---- !u!114 &11403132
+--- !u!114 &11401074
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184620}
+  m_GameObject: {fileID: 170528}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1dc11f3ebdfd3c34b906c66aa7868fb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerType: 0
-  layerName: DirtBase1
-  baseHeight: 60
-  frequency: 16
-  amplitude: 4
+  layerType: 2
+  layerName: Grass
+  baseHeight: 1
+  frequency: 1
+  amplitude: 1
   exponent: 1
-  blockName: dirt
+  blockName: grass
   chanceToSpawnBlock: 10
   structureClassName: StructureTree
   customTerrainLayer: 0
   terrainLayerClassName: 
-  world: {fileID: 0}
---- !u!114 &11403236
+  world: {fileID: 11459658}
+--- !u!114 &11402170
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bb4cdcfcb8373f419fe96608ee3594c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blockName: leaves
-  textures:
-  - leaves
-  - leaves
-  - leaves
-  - leaves
-  - leaves
-  - leaves
-  blockIsSolid: 0
-  solidTowardsSameType: 0
---- !u!114 &11408636
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184620}
+  m_GameObject: {fileID: 170528}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1dc11f3ebdfd3c34b906c66aa7868fb4, type: 3}
@@ -171,17 +150,223 @@ MonoBehaviour:
   amplitude: 10
   exponent: 1
   blockName: air
-  chanceToSpawnBlock: 10
+  chanceToSpawnBlock: 0
   structureClassName: StructureTree
   customTerrainLayer: 1
   terrainLayerClassName: CavesLayer
   world: {fileID: 0}
---- !u!114 &11408784
+--- !u!114 &11406392
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100940}
+  m_GameObject: {fileID: 101166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb4cdcfcb8373f419fe96608ee3594c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockName: connected
+  textures:
+  - connected
+  - connected
+  - connected
+  - connected
+  - connected
+  - connected
+  blockIsSolid: 1
+  solidTowardsSameType: 0
+--- !u!114 &11408338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb4cdcfcb8373f419fe96608ee3594c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockName: log
+  textures:
+  - log_top
+  - log_top
+  - log_side
+  - log_side
+  - log_side
+  - log_side
+  blockIsSolid: 1
+  solidTowardsSameType: 1
+--- !u!114 &11409370
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dc11f3ebdfd3c34b906c66aa7868fb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerType: 3
+  layerName: Trees
+  baseHeight: 0
+  frequency: 10
+  amplitude: 10
+  exponent: 1
+  blockName: stone
+  chanceToSpawnBlock: 0
+  structureClassName: StructureTree
+  customTerrainLayer: 0
+  terrainLayerClassName: 
+  world: {fileID: 11459658}
+--- !u!114 &11415420
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 907a8e38596d0204db553b1e72d14b92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  world: {fileID: 11459658}
+  temperatureScale: 100
+  drainageScale: 100
+  elevationScale: 100
+  rainfallScale: 100
+  percentageBiomePadding: .100000001
+  layerOrder:
+  - {fileID: 11496654}
+  - {fileID: 11440588}
+  - {fileID: 11416694}
+  - {fileID: 11456628}
+  - {fileID: 11462940}
+  - {fileID: 11438388}
+  - {fileID: 11497292}
+  - {fileID: 11401074}
+  - {fileID: 11474582}
+  - {fileID: 11409370}
+--- !u!114 &11416694
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dc11f3ebdfd3c34b906c66aa7868fb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerType: 1
+  layerName: StoneMountains2
+  baseHeight: 4
+  frequency: 85
+  amplitude: 40
+  exponent: 1
+  blockName: stone
+  chanceToSpawnBlock: 10
+  structureClassName: StructureTree
+  customTerrainLayer: 0
+  terrainLayerClassName: 
+  world: {fileID: 11459658}
+--- !u!114 &11422460
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dc11f3ebdfd3c34b906c66aa7868fb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerType: 0
+  layerName: Caves
+  baseHeight: 0
+  frequency: 10
+  amplitude: 10
+  exponent: 1
+  blockName: air
+  chanceToSpawnBlock: 0
+  structureClassName: StructureTree
+  customTerrainLayer: 1
+  terrainLayerClassName: CavesLayer
+  world: {fileID: 0}
+--- !u!114 &11425226
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb4cdcfcb8373f419fe96608ee3594c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockName: stone
+  textures:
+  - stone
+  - stone
+  - stone
+  - stone
+  - stone
+  - stone
+  blockIsSolid: 1
+  solidTowardsSameType: 1
+--- !u!114 &11438388
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dc11f3ebdfd3c34b906c66aa7868fb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerType: 0
+  layerName: DirtBase2
+  baseHeight: 59
+  frequency: 18
+  amplitude: 7
+  exponent: 1
+  blockName: dirt
+  chanceToSpawnBlock: 10
+  structureClassName: StructureTree
+  customTerrainLayer: 0
+  terrainLayerClassName: 
+  world: {fileID: 11459658}
+--- !u!114 &11440588
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dc11f3ebdfd3c34b906c66aa7868fb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerType: 0
+  layerName: StoneMountains1
+  baseHeight: 1
+  frequency: 256
+  amplitude: 30
+  exponent: 1.5
+  blockName: stone
+  chanceToSpawnBlock: 10
+  structureClassName: StructureTree
+  customTerrainLayer: 0
+  terrainLayerClassName: 
+  world: {fileID: 11459658}
+--- !u!114 &11441614
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101166}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3bb4cdcfcb8373f419fe96608ee3594c, type: 3}
@@ -197,12 +382,257 @@ MonoBehaviour:
   - dirt
   blockIsSolid: 1
   solidTowardsSameType: 1
---- !u!114 &11413014
+--- !u!114 &11453474
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184620}
+  m_GameObject: {fileID: 170528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dc11f3ebdfd3c34b906c66aa7868fb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerType: 3
+  layerName: Trees
+  baseHeight: 0
+  frequency: 10
+  amplitude: 10
+  exponent: 1
+  blockName: stone
+  chanceToSpawnBlock: 0
+  structureClassName: StructureTree
+  customTerrainLayer: 0
+  terrainLayerClassName: 
+  world: {fileID: 0}
+--- !u!114 &11456628
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dc11f3ebdfd3c34b906c66aa7868fb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerType: 1
+  layerName: StoneNoise
+  baseHeight: 0
+  frequency: 1
+  amplitude: 1
+  exponent: 1
+  blockName: stone
+  chanceToSpawnBlock: 10
+  structureClassName: StructureTree
+  customTerrainLayer: 0
+  terrainLayerClassName: 
+  world: {fileID: 11459658}
+--- !u!114 &11459658
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2da8c6b21a10564cbffd7e51b5ecc72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chunkPrefab: {fileID: 123308, guid: 333f2c50b10b7054480cca4cfff8382e, type: 2}
+  worldName: world
+--- !u!114 &11462940
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dc11f3ebdfd3c34b906c66aa7868fb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerType: 0
+  layerName: DirtBase1
+  baseHeight: 60
+  frequency: 101
+  amplitude: 15
+  exponent: 1
+  blockName: dirt
+  chanceToSpawnBlock: 10
+  structureClassName: StructureTree
+  customTerrainLayer: 0
+  terrainLayerClassName: 
+  world: {fileID: 11459658}
+--- !u!114 &11463726
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e83e0020448b2f44a5e7e0e5dfb0f20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockName: custommesh
+  meshName: custommesh
+  texture: pyramid
+  blockIsSolid: 000000000000
+  positionOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &11469032
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed375897bdcc7e64faaa1b5a85a2aa9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockName: wildgrass
+  texture: wild_grass
+--- !u!114 &11472370
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb4cdcfcb8373f419fe96608ee3594c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockName: grass
+  textures:
+  - grass_top
+  - dirt
+  - grass_side
+  - grass_side
+  - grass_side
+  - grass_side
+  blockIsSolid: 1
+  solidTowardsSameType: 1
+--- !u!114 &11474582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dc11f3ebdfd3c34b906c66aa7868fb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerType: 4
+  layerName: Wild Grass
+  baseHeight: 0
+  frequency: 10
+  amplitude: 10
+  exponent: 1
+  blockName: wildgrass
+  chanceToSpawnBlock: 0
+  structureClassName: StructureTree
+  customTerrainLayer: 0
+  terrainLayerClassName: 
+  world: {fileID: 11459658}
+--- !u!114 &11474802
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dc11f3ebdfd3c34b906c66aa7868fb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerType: 3
+  layerName: Trees
+  baseHeight: 0
+  frequency: 10
+  amplitude: 10
+  exponent: 1
+  blockName: stone
+  chanceToSpawnBlock: 0
+  structureClassName: StructureTree
+  customTerrainLayer: 0
+  terrainLayerClassName: 
+  world: {fileID: 0}
+--- !u!114 &11484562
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dc11f3ebdfd3c34b906c66aa7868fb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerType: 0
+  layerName: Caves
+  baseHeight: 0
+  frequency: 10
+  amplitude: 10
+  exponent: 1
+  blockName: air
+  chanceToSpawnBlock: 26
+  structureClassName: StructureTree
+  customTerrainLayer: 1
+  terrainLayerClassName: CavesLayer
+  world: {fileID: 0}
+--- !u!114 &11493918
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dc11f3ebdfd3c34b906c66aa7868fb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerType: 3
+  layerName: Trees
+  baseHeight: 0
+  frequency: 10
+  amplitude: 10
+  exponent: 1
+  blockName: stone
+  chanceToSpawnBlock: 0
+  structureClassName: StructureTree
+  customTerrainLayer: 0
+  terrainLayerClassName: 
+  world: {fileID: 0}
+--- !u!114 &11496124
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb4cdcfcb8373f419fe96608ee3594c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockName: leaves
+  textures:
+  - leaves
+  - leaves
+  - leaves
+  - leaves
+  - leaves
+  - leaves
+  blockIsSolid: 0
+  solidTowardsSameType: 0
+--- !u!114 &11496654
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170528}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1dc11f3ebdfd3c34b906c66aa7868fb4, type: 3}
@@ -220,177 +650,12 @@ MonoBehaviour:
   customTerrainLayer: 0
   terrainLayerClassName: 
   world: {fileID: 0}
---- !u!114 &11413568
+--- !u!114 &11497292
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dc11f3ebdfd3c34b906c66aa7868fb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerType: 3
-  layerName: Trees
-  baseHeight: 0
-  frequency: 10
-  amplitude: 10
-  exponent: 1
-  blockName: stone
-  chanceToSpawnBlock: 12
-  structureClassName: StructureTree
-  customTerrainLayer: 0
-  terrainLayerClassName: 
-  world: {fileID: 0}
---- !u!114 &11418280
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dc11f3ebdfd3c34b906c66aa7868fb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerType: 0
-  layerName: StoneMountains1
-  baseHeight: 1
-  frequency: 129
-  amplitude: 40
-  exponent: 1
-  blockName: stone
-  chanceToSpawnBlock: 10
-  structureClassName: StructureTree
-  customTerrainLayer: 0
-  terrainLayerClassName: 
-  world: {fileID: 0}
---- !u!114 &11427492
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dc11f3ebdfd3c34b906c66aa7868fb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerType: 3
-  layerName: Trees
-  baseHeight: 0
-  frequency: 10
-  amplitude: 10
-  exponent: 1
-  blockName: stone
-  chanceToSpawnBlock: 10
-  structureClassName: StructureTree
-  customTerrainLayer: 0
-  terrainLayerClassName: 
-  world: {fileID: 0}
---- !u!114 &11429476
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed375897bdcc7e64faaa1b5a85a2aa9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blockName: wildgrass
-  texture: wild_grass
---- !u!114 &11430418
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dc11f3ebdfd3c34b906c66aa7868fb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerType: 3
-  layerName: Trees
-  baseHeight: 0
-  frequency: 10
-  amplitude: 10
-  exponent: 1
-  blockName: stone
-  chanceToSpawnBlock: 10
-  structureClassName: StructureTree
-  customTerrainLayer: 0
-  terrainLayerClassName: 
-  world: {fileID: 0}
---- !u!114 &11433488
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bb4cdcfcb8373f419fe96608ee3594c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blockName: stone
-  textures:
-  - stone
-  - stone
-  - stone
-  - stone
-  - stone
-  - stone
-  blockIsSolid: 1
-  solidTowardsSameType: 1
---- !u!114 &11436550
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e83e0020448b2f44a5e7e0e5dfb0f20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blockName: custommesh
-  meshName: custommesh
-  texture: pyramid
-  blockIsSolid: 000000000000
-  positionOffset: {x: 0, y: 0, z: 0}
---- !u!114 &11438196
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dc11f3ebdfd3c34b906c66aa7868fb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerType: 1
-  layerName: StoneMountains2
-  baseHeight: 4
-  frequency: 111
-  amplitude: 38
-  exponent: 1
-  blockName: stone
-  chanceToSpawnBlock: 10
-  structureClassName: StructureTree
-  customTerrainLayer: 0
-  terrainLayerClassName: 
-  world: {fileID: 0}
---- !u!114 &11444470
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184620}
+  m_GameObject: {fileID: 170528}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1dc11f3ebdfd3c34b906c66aa7868fb4, type: 3}
@@ -403,276 +668,11 @@ MonoBehaviour:
   amplitude: 10
   exponent: 1
   blockName: air
-  chanceToSpawnBlock: 10
+  chanceToSpawnBlock: 0
   structureClassName: StructureTree
   customTerrainLayer: 1
   terrainLayerClassName: CavesLayer
-  world: {fileID: 0}
---- !u!114 &11446294
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dc11f3ebdfd3c34b906c66aa7868fb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerType: 2
-  layerName: Grass
-  baseHeight: 1
-  frequency: 1
-  amplitude: 1
-  exponent: 1
-  blockName: grass
-  chanceToSpawnBlock: 10
-  structureClassName: StructureTree
-  customTerrainLayer: 0
-  terrainLayerClassName: 
-  world: {fileID: 0}
---- !u!114 &11447936
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bb4cdcfcb8373f419fe96608ee3594c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blockName: connected
-  textures:
-  - connected
-  - connected
-  - connected
-  - connected
-  - connected
-  - connected
-  blockIsSolid: 1
-  solidTowardsSameType: 0
---- !u!114 &11453230
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dc11f3ebdfd3c34b906c66aa7868fb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerType: 0
-  layerName: Caves
-  baseHeight: 0
-  frequency: 10
-  amplitude: 10
-  exponent: 1
-  blockName: air
-  chanceToSpawnBlock: 10
-  structureClassName: StructureTree
-  customTerrainLayer: 1
-  terrainLayerClassName: CavesLayer
-  world: {fileID: 0}
---- !u!114 &11456570
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 907a8e38596d0204db553b1e72d14b92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  world: {fileID: 11498696}
-  temperatureScale: 100
-  drainageScale: 100
-  elevationScale: 100
-  rainfallScale: 100
-  percentageBiomePadding: .100000001
-  layerOrder:
-  - {fileID: 11413014}
-  - {fileID: 11418280}
-  - {fileID: 11438196}
-  - {fileID: 11460328}
-  - {fileID: 11403132}
-  - {fileID: 11478306}
-  - {fileID: 11444470}
-  - {fileID: 11446294}
-  - {fileID: 11496026}
-  - {fileID: 11413568}
---- !u!114 &11460328
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dc11f3ebdfd3c34b906c66aa7868fb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerType: 1
-  layerName: StoneNoise
-  baseHeight: 0
-  frequency: 7
-  amplitude: 3
-  exponent: 1
-  blockName: stone
-  chanceToSpawnBlock: 10
-  structureClassName: StructureTree
-  customTerrainLayer: 0
-  terrainLayerClassName: 
-  world: {fileID: 0}
---- !u!114 &11467392
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bb4cdcfcb8373f419fe96608ee3594c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blockName: log
-  textures:
-  - log_top
-  - log_top
-  - log_side
-  - log_side
-  - log_side
-  - log_side
-  blockIsSolid: 1
-  solidTowardsSameType: 1
---- !u!114 &11476858
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dc11f3ebdfd3c34b906c66aa7868fb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerType: 0
-  layerName: Caves
-  baseHeight: 0
-  frequency: 10
-  amplitude: 10
-  exponent: 1
-  blockName: air
-  chanceToSpawnBlock: 10
-  structureClassName: StructureTree
-  customTerrainLayer: 1
-  terrainLayerClassName: CavesLayer
-  world: {fileID: 0}
---- !u!114 &11478306
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dc11f3ebdfd3c34b906c66aa7868fb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerType: 0
-  layerName: DirtBase2
-  baseHeight: 59
-  frequency: 25
-  amplitude: 6
-  exponent: 1
-  blockName: dirt
-  chanceToSpawnBlock: 10
-  structureClassName: StructureTree
-  customTerrainLayer: 0
-  terrainLayerClassName: 
-  world: {fileID: 0}
---- !u!114 &11483332
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bb4cdcfcb8373f419fe96608ee3594c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blockName: grass
-  textures:
-  - grass_top
-  - dirt
-  - grass_side
-  - grass_side
-  - grass_side
-  - grass_side
-  blockIsSolid: 1
-  solidTowardsSameType: 1
---- !u!114 &11496026
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dc11f3ebdfd3c34b906c66aa7868fb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerType: 4
-  layerName: Wild Grass
-  baseHeight: 0
-  frequency: 10
-  amplitude: 10
-  exponent: 1
-  blockName: wildgrass
-  chanceToSpawnBlock: 26
-  structureClassName: StructureTree
-  customTerrainLayer: 0
-  terrainLayerClassName: 
-  world: {fileID: 0}
---- !u!114 &11496202
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dc11f3ebdfd3c34b906c66aa7868fb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerType: 3
-  layerName: Trees
-  baseHeight: 0
-  frequency: 10
-  amplitude: 10
-  exponent: 1
-  blockName: stone
-  chanceToSpawnBlock: 10
-  structureClassName: StructureTree
-  customTerrainLayer: 0
-  terrainLayerClassName: 
-  world: {fileID: 0}
---- !u!114 &11498696
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2da8c6b21a10564cbffd7e51b5ecc72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chunkPrefab: {fileID: 123308, guid: 333f2c50b10b7054480cca4cfff8382e, type: 2}
-  worldName: world
+  world: {fileID: 11459658}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -681,22 +681,30 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
-      propertyPath: solidTowardsSameType
+      propertyPath: temperatureScale
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: chanceToSpawnBlock
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
-      propertyPath: percentage
-      value: 90
+      propertyPath: frequency
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 0}
-      propertyPath: temperatureScale
-      value: 100
+      propertyPath: amplitude
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 0}
-      propertyPath: drainageScale
-      value: 100
+      propertyPath: exponent
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: baseHeight
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 104736}
+  m_RootGameObject: {fileID: 145522}
   m_IsPrefabParent: 1

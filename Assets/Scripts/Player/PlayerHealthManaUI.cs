@@ -10,8 +10,8 @@ public class PlayerHealthManaUI : MonoBehaviour {
 
 	void Start() {
 		healthScript = GetComponent<CharacterHealthMana> ();
-		healthSlider = GameObject.Find ("HUDCanvas").transform.Find("StatsPanel").Find("PlayerHealthBar").GetComponent<Slider> ();
-		manaSlider = GameObject.Find ("HUDCanvas").transform.Find("StatsPanel").Find("PlayerManaBar").GetComponent<Slider> ();
+		healthSlider = GameObject.Find ("MainCanvas").transform.Find("StatsPanel").Find("PlayerHealthBar").GetComponent<Slider> ();
+		manaSlider = GameObject.Find ("MainCanvas").transform.Find("StatsPanel").Find("PlayerManaBar").GetComponent<Slider> ();
 	}
 
 	void Update() {

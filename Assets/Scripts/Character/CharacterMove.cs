@@ -12,6 +12,7 @@ public abstract class CharacterMove : MonoBehaviour {
 	float speed;
 	float jumpSpeed;
 	float gravity = Physics.gravity.y;
+	float upSpeed = 0;
 
 	Vector3 moveDirection = Vector3.zero;
 
@@ -24,20 +25,20 @@ public abstract class CharacterMove : MonoBehaviour {
 		speed = stats.GetSpeed();
 		jumpSpeed = stats.GetJumpSpeed();
 
+		moveDirection = GetInput ();
+		moveDirection = transform.TransformDirection(moveDirection);
+		moveDirection *= speed;
+
 		if (controller.isGrounded) {
-			moveDirection = GetInput ();
-			moveDirection = transform.TransformDirection(moveDirection);
-			moveDirection *= speed;
-			//If the character is moving diagonally, divide magnitude by 1.4 to prevent huge speed buffs from diagonal walking
-			if (moveDirection.x != 0 && moveDirection.z != 0) {
-				moveDirection /= 1.4f;
+			upSpeed = 0;
+			if (GetJump ()) {
+				upSpeed = jumpSpeed;
 			}
-			if (GetJump()) {
-				moveDirection.y = jumpSpeed;
-			}
+		} else {
+			//ADD gravity because it's negative
+			upSpeed += gravity * Time.fixedDeltaTime;
 		}
-		//ADD gravity because it's negative
-		moveDirection.y += gravity * Time.deltaTime;
+		moveDirection.y = upSpeed;
 		controller.Move(moveDirection * Time.deltaTime);
 	}
 

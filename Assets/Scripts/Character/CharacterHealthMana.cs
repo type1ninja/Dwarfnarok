@@ -27,7 +27,7 @@ public class CharacterHealthMana : MonoBehaviour {
 		}
 
 		//Void Death
-		if (transform.position.y <= -4) {
+		if (transform.position.y <= -100) {
 			ModHealth(VOIDDMGPERSEC * Time.fixedDeltaTime);
 		}
 
@@ -60,10 +60,9 @@ public class CharacterHealthMana : MonoBehaviour {
 	public void ModMana(float diff) {
 		mana += diff;
 	}
-
-	//TODO - STOP MOTION AS WELL
+	
 	void Die() {
-		transform.position = new Vector3 (9.5f, 5, 0);
+		transform.position = new Vector3 (9.5f, 10, 0);
 		health = stats.GetMaxHealth();
 		mana = stats.GetMaxMana ();
 		move.StopMotion ();

@@ -16,7 +16,7 @@ public class Spell {
 	public float manaCost;
 	public float attackTime = 0.75f;
 	public float projectileSpeed = 2500f;
-	public bool affectedByGravity = true;
+	public bool affectedByGravity = false;
 	public float radius = 1;
 	public float lifetime = 1;
 	public float size = 1;
@@ -43,12 +43,13 @@ public class Spell {
 				* (1 / effect.attackTimeMod) * (1 / effect.knockbackMod) 
 				* (1 / effect.speedMod) * (1 / effect.jumpSpeedMod); 
 
-			//Instant effects: since more of damage helps the player, and it comes as an
+			//Instant effects: 
+			//Potentially wrong explanation: since more of damage helps the player, and it comes as an
 			//absolute value, we add it so the negative minimum is at 1/3 the max, we just divide it so 
 			//it scales to a .5-1.5 scale.
 			//Knockback is helpful to the player no matter which direction is goes, so calculate that
 			//in a similar way with absolute value
-			manaCost *= ((effect.instantDamage + 10) / 10) * (Mathf.Abs (effect.instantKnockback / 24) + 1);
+			manaCost *= ((effect.instantDamage + 50) / 50) * (Mathf.Abs (effect.instantKnockback / 24) + 1);
 		} 
 		//When targeting friendlies: positive effects increase cost, negative effects decrease it
 		else if (!targetsEnemies) {
@@ -104,10 +105,10 @@ public class Spell {
 				manaCost *= GRAVITY_COST_MODIFIER; //Maybe .85 for now?
 			}
 
-			//Lifetime cost--just multiply by the cost. A 1 sec range isn't unreasonable
-			manaCost *= lifetime;
+			//Lifetime cost--multiply by lifetime, but reduce the effect
+			manaCost *= (lifetime + 1) / 2;
 			//Size--same thing
-			manaCost *= size;
+			manaCost *= (size + 2) / 3;
 		}
 	}
 }
