@@ -25,9 +25,11 @@ public abstract class CharacterMove : MonoBehaviour {
 		speed = stats.GetSpeed();
 		jumpSpeed = stats.GetJumpSpeed();
 
-		moveDirection = GetInput ();
-		moveDirection = transform.TransformDirection(moveDirection);
-		moveDirection *= speed;
+		if (controller.isGrounded) {
+			moveDirection = GetInput ();
+			moveDirection = transform.TransformDirection (moveDirection);
+			moveDirection *= speed;
+		} 
 
 		if (controller.isGrounded) {
 			upSpeed = 0;
@@ -53,6 +55,7 @@ public abstract class CharacterMove : MonoBehaviour {
 		controller.Move(new Vector3(0, .03f, 0));
 		//add force to the motion
 		moveDirection += (force * (1 - stats.GetDamageReduction()));
+		upSpeed += force.y;
 	}
 
 	public Vector3 GetMoveDir() {

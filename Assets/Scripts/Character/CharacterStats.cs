@@ -20,7 +20,7 @@ public class CharacterStats : MonoBehaviour {
 	//Number of seconds taken to swing object
 	float DEFAULT_attackTime = .75f;
 	
-	float DEFAULT_speed = 10f;
+	float DEFAULT_speed = 8f;
 	float DEFAULT_jumpSpeed = 6.5f;
 
 	//The armor is pretty much modifiable-in-game player stats
