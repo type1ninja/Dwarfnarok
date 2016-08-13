@@ -8,6 +8,8 @@ TagManager:
   - WeaponCustomizer
   - ArmorCustomizer
   - SpellCustomizer
+  - Chunk
+  - StartAttacking
   layers:
   - Default
   - TransparentFX

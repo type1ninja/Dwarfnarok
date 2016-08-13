@@ -9,12 +9,13 @@ public class FloatingHealth : MonoBehaviour {
 	string charName = "Generic Name";
 
 	Transform character;
-	CharacterHealthMana healthScript;
+	AIHealthMana healthScript;
 	Slider slider; 
 	Text text;
 
 	void Start() {
-		healthScript = GetComponentInParent<CharacterHealthMana> ();
+		healthScript = transform.root.GetComponent<AIHealthMana> ();
+		healthScript.SetHealthbar (gameObject);
 		//Store the actual character
 		character = transform.parent;
 		//Set the actual parent to be the canvas; if it stayed with the character
@@ -27,6 +28,7 @@ public class FloatingHealth : MonoBehaviour {
 	}
 
 	void Update() {
+
 		if (CheckIfVisible(character.position + offset)) {
 			slider.gameObject.SetActive (true);
 			text.gameObject.SetActive (true);

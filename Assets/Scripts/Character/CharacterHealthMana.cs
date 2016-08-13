@@ -1,18 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CharacterHealthMana : MonoBehaviour {
+public abstract class CharacterHealthMana : MonoBehaviour {
 
 	//Void damage per second
 	float VOIDDMGPERSEC = -75;
 
-	CharacterStats stats;
-	CharacterMove move;
+	protected CharacterStats stats;
+	protected CharacterMove move;
 
-	float health;
-	float mana;
+	protected float health;
+	protected float mana;
 
-	bool hasSetFirstHealth = false;
+	bool hasSetFirstStats = false;
 
 	void Start() {
 		stats = GetComponent<CharacterStats> ();
@@ -21,9 +21,11 @@ public class CharacterHealthMana : MonoBehaviour {
 
 	void FixedUpdate() {
 
-		if (!hasSetFirstHealth) {
-			Die ();
-			hasSetFirstHealth = true;
+		if (!hasSetFirstStats) {
+			health = stats.GetMaxHealth ();
+			mana = stats.GetMaxMana ();
+
+			hasSetFirstStats = true;
 		}
 
 		//Void Death
@@ -61,13 +63,7 @@ public class CharacterHealthMana : MonoBehaviour {
 		mana += diff;
 	}
 	
-	void Die() {
-		transform.position = new Vector3 (9.5f, 35, 0);
-		health = stats.GetMaxHealth();
-		mana = stats.GetMaxMana ();
-		move.StopMotion ();
-
-	}
+	protected abstract void Die ();
 
 	public float GetMaxHealth() {
 		return stats.GetMaxHealth ();

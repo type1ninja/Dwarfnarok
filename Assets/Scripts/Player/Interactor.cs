@@ -12,6 +12,7 @@ public class Interactor : MonoBehaviour {
 	SimpleSmoothMouseLook mouseLook;
 	PlayerWepControl wepControl;
 	PlayerSpellControl spellControl;
+	GameState state;
 
 	float range = 10.0f;
 
@@ -31,6 +32,8 @@ public class Interactor : MonoBehaviour {
 		mouseLook = GetComponentInChildren<SimpleSmoothMouseLook> ();
 		wepControl = GetComponent<PlayerWepControl> ();
 		spellControl = GetComponent<PlayerSpellControl> ();
+
+		state = GameObject.Find ("GameLogicScripts").GetComponent<GameState> ();
 	}
 
 	void DisablePlayer() {
@@ -49,8 +52,7 @@ public class Interactor : MonoBehaviour {
 
 				string hitTag = hit.transform.tag;
 
-
-				//Long list of possible tags for an "interactable" object
+				//Long list of possible tags for an "interactable" object that opens a menu
 				if (hitTag.Equals ("WeaponCustomizer") || hitTag.Equals ("ArmorCustomizer") || hitTag.Equals ("SpellCustomizer")) {
 					//Overall disabling
 
@@ -64,6 +66,11 @@ public class Interactor : MonoBehaviour {
 						spellCustomizerPanel.SetActive (true);
 					}
 				} 
+
+				//Long list of possible tracks for an "interactable" object that 
+				if (hitTag.Equals ("StartAttacking")) {
+					state.SetEnemiesAttacking (true);
+				}
 			}
 		}
 	}
